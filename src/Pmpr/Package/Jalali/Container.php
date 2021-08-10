@@ -1,0 +1,2 @@
+<?php
+ namespace Pmpr\Package\Jalali; use Pmpr\Common\Foundation\Container\Container as BaseClass; use Pmpr\Common\Foundation\Manipulate\Post\ManipulatePost; class Container extends BaseClass { public function __construct() { $this->settingObj = Setting::getInstance(); parent::__construct(); } public function canAddVirastar() : bool { return ManipulatePost::isEditorPage($this->getSettingByKey(Setting::VIRASTAR_POST_TYPE_TARGETS, [])); } }
