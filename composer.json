@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=7.4",
-    "pmpr/wp-cmn-foundation": "^v1.0.6"
+    "pmpr/wp-cmn-foundation": "dev-main"
   },
   "autoload": {
     "psr-4": {
