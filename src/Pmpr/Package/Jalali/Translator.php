@@ -1,7 +1,7 @@
 <?php
 /*   _______________________________________
     |  Obfuscated by PMPR - Php Obfuscator  |
-    |             613b569c18b95             |
+    |             613bb99363ba3             |
     |_______________________________________|
 */
 
@@ -23,49 +23,23 @@ class Translator extends Container
     
     public function translate($cmwygeyygwqaemaq, $aamkqmkgsaqmcuao)
     {
-        goto agyooskogigyayws;
-        iiiwsgameuomumgw:
-        $aamkqmkgsaqmcuao = DecoratorI18N::iyouigcsiacgwksc();
-        goto mcukocaaoyuugoeu;
-        egwgyekaiqomyeaa:
-        return $cmwygeyygwqaemaq;
-        goto kssuqmsgmaaeqigw;
-        scockmiqikwwkqse:
+        if (!$aamkqmkgsaqmcuao) {
+            $aamkqmkgsaqmcuao = DecoratorI18N::iyouigcsiacgwksc();
+        }
         switch ($aamkqmkgsaqmcuao) {
             case 'fa':
             case 'fa_IR':
-                goto momuweiasiwskekw;
-                momuweiasiwskekw:
                 $cmwygeyygwqaemaq = $this->eesmuqmoykoqawug($cmwygeyygwqaemaq);
-                goto qaewauyekqucciyc;
-                qaewauyekqucciyc:
                 $cmwygeyygwqaemaq = $this->nkyiiqgsgaeeecso($cmwygeyygwqaemaq);
-                goto bgakaasgwwygosyi;
-                bgakaasgwwygosyi:
-                goto kuuawiosmkgqsscy;
-                goto aucwccaiqwsmyuaq;
-                aucwccaiqwsmyuaq:
+                goto eequksumcoogyoem;
             case 'en':
             case 'en_US':
                 $cmwygeyygwqaemaq = $this->mgmuuqwaamswcoug($cmwygeyygwqaemaq);
-                goto kuuawiosmkgqsscy;
+                goto eequksumcoogyoem;
         }
-        goto okycquokqoamsquy;
-        mcukocaaoyuugoeu:
-        saiuoomgskwgyeya:
-        goto scockmiqikwwkqse;
-        agyooskogigyayws:
-        if ($aamkqmkgsaqmcuao) {
-            goto saiuoomgskwgyeya;
-        }
-        goto iiiwsgameuomumgw;
-        cgwokqwakqcmiieo:
-        kuuawiosmkgqsscy:
-        goto egwgyekaiqomyeaa;
-        okycquokqoamsquy:
-        kwocaqggwcksesce:
-        goto cgwokqwakqcmiieo;
-        kssuqmsgmaaeqigw:
+        uukumskkeggaowck:
+        eequksumcoogyoem:
+        return $cmwygeyygwqaemaq;
     }
     
     public function eesmuqmoykoqawug($cmwygeyygwqaemaq)
@@ -80,34 +54,13 @@ class Translator extends Container
     
     private function ssqoqysuuaweoswa($meyiiwcswqmuggyg)
     {
-        goto acaeigkmigikeuyu;
-        wykuosegisygosiq:
-        $eusockqasqqmoess = str_replace(self::ENGLISH_NUMBERS, self::PERSIAN_NUMBERS, $eusockqasqqmoess);
-        goto ugikgkwuwmgymgus;
-        kqyeukywmgismyaq:
-        if ($eusockqasqqmoess !== false) {
-            goto uwusswwekqcsisus;
-        }
-        goto mukwsuuuqcgesmwc;
-        mukwsuuuqcgesmwc:
-        $eusockqasqqmoess = ManipulateArray::get($meyiiwcswqmuggyg, 0);
-        goto cqeoguiqiymkyweo;
-        ugikgkwuwmgymgus:
-        mciumqyyossyiuyk:
-        goto gsgyayuaekgyoumc;
-        gsgyayuaekgyoumc:
-        return $eusockqasqqmoess;
-        goto omemqagskckoeoog;
-        cqeoguiqiymkyweo:
-        goto mciumqyyossyiuyk;
-        goto omgcsmsikaggaooc;
-        omgcsmsikaggaooc:
-        uwusswwekqcsisus:
-        goto wykuosegisygosiq;
-        acaeigkmigikeuyu:
         $eusockqasqqmoess = ManipulateArray::get($meyiiwcswqmuggyg, 1, false);
-        goto kqyeukywmgismyaq;
-        omemqagskckoeoog:
+        if ($eusockqasqqmoess !== false) {
+            $eusockqasqqmoess = str_replace(self::ENGLISH_NUMBERS, self::PERSIAN_NUMBERS, $eusockqasqqmoess);
+        } else {
+            $eusockqasqqmoess = ManipulateArray::get($meyiiwcswqmuggyg, 0);
+        }
+        return $eusockqasqqmoess;
     }
     
     public function mgmuuqwaamswcoug($ygmmaywsqqycaaok)
@@ -117,22 +70,10 @@ class Translator extends Container
     
     public function ieacowssemeuewag($sociqikgoyemqaac, $aamkqmkgsaqmcuao = 'fa', $eqmcogmcemgigckm = '٫')
     {
-        goto aeuosggumiiwoesm;
-        aeuosggumiiwoesm:
         $mqwsmsykyouoomgm = self::ENGLISH_NUMBERS;
-        goto wyqmeyoaggwuioak;
-        sqmqwqeoygcmqcim:
-        $ksskkagoieiyuuwe = in_array($aamkqmkgsaqmcuao, ['fa', 'fa_IR']);
-        goto syykqmkiyoekqsek;
-        syykqmkiyoekqsek:
-        return $ksskkagoieiyuuwe ? str_replace($mqwsmsykyouoomgm, $uusmaiomayssaecw, $sociqikgoyemqaac) : str_replace($uusmaiomayssaecw, $mqwsmsykyouoomgm, $sociqikgoyemqaac);
-        goto aiqekkyauwswayyq;
-        wyqmeyoaggwuioak:
         $uusmaiomayssaecw = self::PERSIAN_NUMBERS;
-        goto uyksacasqywyessc;
-        uyksacasqywyessc:
         $uusmaiomayssaecw[self::SEPARATOR] = $eqmcogmcemgigckm;
-        goto sqmqwqeoygcmqcim;
-        aiqekkyauwswayyq:
+        $ksskkagoieiyuuwe = in_array($aamkqmkgsaqmcuao, ['fa', 'fa_IR']);
+        return $ksskkagoieiyuuwe ? str_replace($mqwsmsykyouoomgm, $uusmaiomayssaecw, $sociqikgoyemqaac) : str_replace($uusmaiomayssaecw, $mqwsmsykyouoomgm, $sociqikgoyemqaac);
     }
 }
