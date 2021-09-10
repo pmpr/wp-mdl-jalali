@@ -1,65 +1,7 @@
 <?php
 /*   _______________________________________
     |  Obfuscated by PMPR - Php Obfuscator  |
-    |             613bb99363ba3             |
+    |             613bbc0c08ccc             |
     |_______________________________________|
 */
-
-namespace Pmpr\Package\Jalali\Area;
-
-use Pmpr\Common\Foundation\Decorator\DecoratorI18N;
-use Pmpr\Common\Foundation\Manipulate\ManipulateSetting;
-use Pmpr\Common\Foundation\Manipulate\Type\ManipulateString;
-
-class Area extends Common
-{
-    
-    public function __construct()
-    {
-        parent::__construct();
-        $this->iemaakgqgqosiecm();
-    }
-    public function kgquecmsgcouyaya()
-    {
-        $this->cecaguuoecmccuse($this->ygyygikyocoymgaw('get_age'), [$this, 'gcmeamqagaouiskc'], 10, 2)->cecaguuoecmccuse($this->ygyygikyocoymgaw('convert_date'), [$this, 'mikaiusgimoekqye'], 10, 3)->cecaguuoecmccuse($this->ygyygikyocoymgaw('trans_word'), [$this, 'uygeikwmwmiwsqca'], 10, 2)->cecaguuoecmccuse($this->ygyygikyocoymgaw('trans_datetime'), [$this, 'mikaiusgimoekqye'], 10, 3)->cecaguuoecmccuse($this->ygyygikyocoymgaw('trans_number'), [$this, 'ieacowssemeuewag'], 10, 3);
-        parent::kgquecmsgcouyaya();
-    }
-    public function iemaakgqgqosiecm()
-    {
-        if (!is_admin()) {
-            Front::symcgieuakksimmu();
-        } else {
-            Admin::symcgieuakksimmu();
-        }
-    }
-    
-    public function gcmeamqagaouiskc($usqcwoasmiiomgks, $ksskkagoieiyuuwe = true)
-    {
-        $asygkgscoucyqgus = 0;
-        if ($usqcwoasmiiomgks) {
-            $usqcwoasmiiomgks = ManipulateString::ucymkkoowkqeauga($usqcwoasmiiomgks, '/');
-            $ggkaciewmeqmgckg = ManipulateString::ucymkkoowkqeauga($usqcwoasmiiomgks, '-');
-            if ($ksskkagoieiyuuwe) {
-                $ggkaciewmeqmgckg = $this->kkkikouyuqigocai()->msywmyaoqmaegsuy($usqcwoasmiiomgks);
-                $ggkaciewmeqmgckg = $this->uacmswwoiqckokew()->iiemucyoiawywqmw($ggkaciewmeqmgckg, 1, 1)[0];
-            }
-            $cugkqygegsymsyic = date('Y');
-            $asygkgscoucyqgus = $cugkqygegsymsyic - $ggkaciewmeqmgckg;
-            if ($asygkgscoucyqgus < 1) {
-                $asygkgscoucyqgus = 1;
-            }
-        }
-        return $asygkgscoucyqgus;
-    }
-    
-    public function mikaiusgimoekqye($ocogsiouoiuuguym, $saqmwwmqiwmkiwaa = null, $somiuasmmwkuceag = 'fa')
-    {
-        if (!$saqmwwmqiwmkiwaa) {
-            $saqmwwmqiwmkiwaa = ManipulateSetting::uyomwmskouyyqyyq();
-        }
-        if (!$somiuasmmwkuceag) {
-            $somiuasmmwkuceag = DecoratorI18N::iyouigcsiacgwksc();
-        }
-        return parent::mikaiusgimoekqye($ocogsiouoiuuguym, $saqmwwmqiwmkiwaa, $somiuasmmwkuceag);
-    }
-}
+ namespace Pmpr\Package\Jalali\Area; use Pmpr\Common\Foundation\Decorator\DecoratorI18N; use Pmpr\Common\Foundation\Manipulate\ManipulateSetting; use Pmpr\Common\Foundation\Manipulate\Type\ManipulateString; class Area extends Common { public function __construct() { parent::__construct(); $this->iemaakgqgqosiecm(); } public function kgquecmsgcouyaya() { $this->cecaguuoecmccuse($this->ygyygikyocoymgaw("\x67\x65\x74\x5f\141\147\145"), [$this, "\x67\143\155\x65\141\155\x71\x61\x67\x61\x6f\x75\151\x73\x6b\143"], 10, 2)->cecaguuoecmccuse($this->ygyygikyocoymgaw("\143\x6f\156\166\145\162\164\137\144\x61\x74\x65"), [$this, "\155\151\153\141\x69\x75\x73\147\x69\155\x6f\x65\x6b\x71\x79\x65"], 10, 3)->cecaguuoecmccuse($this->ygyygikyocoymgaw("\164\x72\141\156\163\137\x77\x6f\x72\x64"), [$this, "\165\171\147\x65\x69\x6b\167\155\167\x6d\x69\167\163\x71\143\x61"], 10, 2)->cecaguuoecmccuse($this->ygyygikyocoymgaw("\x74\162\141\x6e\163\137\144\x61\x74\145\x74\x69\x6d\x65"), [$this, "\x6d\151\153\141\x69\165\x73\147\151\155\x6f\145\x6b\161\x79\x65"], 10, 3)->cecaguuoecmccuse($this->ygyygikyocoymgaw("\164\162\141\156\163\137\x6e\x75\x6d\x62\145\162"), [$this, "\151\x65\x61\x63\x6f\167\x73\x73\x65\x6d\x65\x75\x65\x77\x61\147"], 10, 3); parent::kgquecmsgcouyaya(); } public function iemaakgqgqosiecm() { if (!is_admin()) { goto cmegwsegsosyqcai; } Admin::symcgieuakksimmu(); goto wmywuusgukmmaams; cmegwsegsosyqcai: Front::symcgieuakksimmu(); wmywuusgukmmaams: } public function gcmeamqagaouiskc($usqcwoasmiiomgks, $ksskkagoieiyuuwe = true) { $asygkgscoucyqgus = 0; if (!$usqcwoasmiiomgks) { goto egyyiccaeeiooaua; } $usqcwoasmiiomgks = ManipulateString::ucymkkoowkqeauga($usqcwoasmiiomgks, "\57"); $ggkaciewmeqmgckg = ManipulateString::ucymkkoowkqeauga($usqcwoasmiiomgks, "\55"); if (!$ksskkagoieiyuuwe) { goto gkyawqqcmigqgaiq; } $ggkaciewmeqmgckg = $this->kkkikouyuqigocai()->msywmyaoqmaegsuy($usqcwoasmiiomgks); $ggkaciewmeqmgckg = $this->uacmswwoiqckokew()->iiemucyoiawywqmw($ggkaciewmeqmgckg, 1, 1)[0]; gkyawqqcmigqgaiq: $cugkqygegsymsyic = date("\x59"); $asygkgscoucyqgus = $cugkqygegsymsyic - $ggkaciewmeqmgckg; if (!($asygkgscoucyqgus < 1)) { goto ooeausyowguqicuo; } $asygkgscoucyqgus = 1; ooeausyowguqicuo: egyyiccaeeiooaua: return $asygkgscoucyqgus; } public function mikaiusgimoekqye($ocogsiouoiuuguym, $saqmwwmqiwmkiwaa = null, $somiuasmmwkuceag = "\x66\x61") { if ($saqmwwmqiwmkiwaa) { goto scisgsyemmsekgos; } $saqmwwmqiwmkiwaa = ManipulateSetting::uyomwmskouyyqyyq(); scisgsyemmsekgos: if ($somiuasmmwkuceag) { goto cewmoqyysgsmuiya; } $somiuasmmwkuceag = DecoratorI18N::iyouigcsiacgwksc(); cewmoqyysgsmuiya: return parent::mikaiusgimoekqye($ocogsiouoiuuguym, $saqmwwmqiwmkiwaa, $somiuasmmwkuceag); } }
