@@ -1,2 +1,937 @@
 <?php
- namespace Pmpr\Package\Jalali; use Pmpr\Common\Foundation\Manipulate\Type\ManipulateArray; class Converter extends Container { protected ?Translator $translator = null; public function __construct() { $this->translator = Translator::getInstance(); parent::__construct(); } public function getTranslator() : ?Translator { return $this->translator; } public function monthName($fKdEM) { $Cu7CH = $this->dateWords(["\x6d\x6d" => (int) $fKdEM]); return ManipulateArray::get($Cu7CH, "\x6d\155", $Cu7CH); } public function checkDate($ZsPNt, $lF2Yb, $F8pqV) { goto G9jX3; edchG: $W63iU = $ZsPNt == 12 ? $F8pqV % 33 % 4 - 1 == (int) ($F8pqV % 33 * 0.05) ? 30 : 29 : 31 - (int) ($ZsPNt / 6.5); goto gdXSq; G9jX3: [$ZsPNt, $lF2Yb, $F8pqV] = explode("\x5f", $this->transNumber($ZsPNt . "\137" . $lF2Yb . "\x5f" . $F8pqV)); goto edchG; gdXSq: return !($ZsPNt > 12 or $lF2Yb > $W63iU or $ZsPNt < 1 or $lF2Yb < 1 or $F8pqV < 1); goto QzUMQ; QzUMQ: } public function dateWords($F3mnX, $kNKrK = '') { goto NFKeq; NFKeq: foreach ($F3mnX as $Ne9st => $gJC7j) { goto UiKzk; IT5lQ: iHpcL: goto hG_lC; lGDzy: oEB4V: goto IT5lQ; UiKzk: $gJC7j = (int) $this->translateNumber($gJC7j); goto W8Nuo; W8Nuo: switch ($Ne9st) { case "\163\x73": goto JupPG; JupPG: $OhNkC = strlen($gJC7j); goto mLj2Q; Bmdsi: $ZLaR6 = ['', '', __("\x54\x77\145\156\x74\x79", PR__PKG__JALALI), __("\x54\150\151\162\x74\171", PR__PKG__JALALI), __("\106\157\x72\164\x79", PR__PKG__JALALI), __("\106\151\146\x74\171", PR__PKG__JALALI), __("\x53\x69\x78\x74\171", PR__PKG__JALALI), __("\x53\x65\166\145\156\164\x79", PR__PKG__JALALI), __("\105\x69\x67\x68\164\x79", PR__PKG__JALALI), __("\116\x69\x6e\145\164\171", PR__PKG__JALALI)]; goto XDtXl; MQ8Gj: uQqcb: goto vZXK2; PzKCX: $zeG_0 = substr($gJC7j, 3 - $OhNkC, 1); goto RTlVh; XDtXl: $jSwGm = $ZLaR6[$ZChRL]; goto s6pkz; RTlVh: $XFh0l = ($ZChRL == 0 or $zeG_0 == 0) ? '' : "\40\331\210\x20"; goto Bmdsi; N6Rmb: $NucWP = [__("\124\x65\x6e", PR__PKG__JALALI), __("\x45\x6c\x65\166\145\x6e", PR__PKG__JALALI), __("\x54\167\x65\154\166\145", PR__PKG__JALALI), __("\x54\150\x69\162\x74\145\x65\x6e", PR__PKG__JALALI), __("\106\157\x75\x72\164\x65\145\156", PR__PKG__JALALI), __("\x46\x69\x66\164\x65\x65\156", PR__PKG__JALALI), __("\123\151\x78\x74\x65\145\x6e", PR__PKG__JALALI), __("\123\145\166\x65\x6e\164\145\x65\156", PR__PKG__JALALI), __("\105\x69\x67\150\x74\x65\x65\x6e", PR__PKG__JALALI), __("\116\151\x6e\145\x74\x65\x65\156", PR__PKG__JALALI)]; goto PEqBN; PEqBN: $pORET = $NucWP[substr($gJC7j, 2 - $OhNkC, 2) - 10]; goto F0VKE; F0VKE: EhmEu: goto lSt3p; okDPN: goto EhmEu; goto MQ8Gj; YZDIY: goto iHpcL; goto lsF3F; lSt3p: $F3mnX[$Ne9st] = ($gJC7j > 99 ? str_replace(["\61\62", "\x31\x33", "\x31\64", "\x31\71", "\62\60"], ["\xd9\x87\330\262\xd8\247\330\xb1\x20\xd9\210\40\330\257\xd9\210\xdb\x8c\xd8\xb3\xd8\252", "\331\x87\330\262\330\xa7\xd8\xb1\x20\331\x88\x20\330\263\xdb\x8c\xd8\265\xd8\xaf", "\331\x87\xd8\262\330\247\330\261\x20\331\x88\x20\332\206\331\x87\xd8\xa7\xd8\261\330\265\xd8\xaf", "\xd9\207\330\262\330\247\xd8\261\40\331\x88\x20\331\x86\xd9\x87\xd8\265\330\xaf", "\330\xaf\331\x88\331\x87\xd8\xb2\xd8\xa7\xd8\xb1"], substr($gJC7j, 0, 2)) . (substr($gJC7j, 2, 2) == "\60\x30" ? '' : "\40\331\x88\40") : '') . $jSwGm . $XFh0l . $pORET . $hbX7F; goto YZDIY; DD9bc: $hbX7F = $jF18i[$zeG_0]; goto okDPN; HyNMK: if ($ZChRL == 1) { goto uQqcb; } goto PzKCX; s6pkz: $jF18i = ['', __("\117\156\x65", PR__PKG__JALALI), __("\x54\x77\157", PR__PKG__JALALI), __("\124\x68\162\x65\x65", PR__PKG__JALALI), __("\106\157\165\162", PR__PKG__JALALI), __("\x46\x69\x76\x65", PR__PKG__JALALI), __("\123\151\x78", PR__PKG__JALALI), __("\x53\145\166\x65\x6e", PR__PKG__JALALI), __("\x45\151\147\x68\x74", PR__PKG__JALALI), __("\x4e\151\x6e\x65", PR__PKG__JALALI)]; goto DD9bc; mLj2Q: $ZChRL = substr($gJC7j, 2 - $OhNkC, 1); goto DH1P3; DH1P3: $jSwGm = $pORET = $hbX7F = ''; goto HyNMK; vZXK2: $XFh0l = ''; goto N6Rmb; lsF3F: case "\x6d\155": goto jz3tV; jz3tV: $JDBfz = ["\331\201\xd8\261\xd9\210\330\261\xd8\257\xdb\x8c\331\206", "\xd8\xa7\330\xb1\330\xaf\xdb\214\xd8\250\xd9\207\xd8\xb4\xd8\xaa", "\xd8\xae\xd8\xb1\330\xaf\xd8\xa7\xd8\257", "\330\252\333\x8c\330\xb1", "\331\205\xd8\261\xd8\xaf\xd8\xa7\330\xaf", "\330\xb4\xd9\207\xd8\xb1\333\x8c\331\x88\330\xb1", "\xd9\x85\331\207\xd8\261", "\330\xa2\xd8\xa8\xd8\247\331\x86", "\330\242\xd8\xb0\330\261", "\xd8\257\xdb\214", "\xd8\250\xd9\x87\331\205\xd9\206", "\xd8\xa7\330\263\331\x81\331\206\xd8\xaf"]; goto mjkr8; mjkr8: $F3mnX[$Ne9st] = $JDBfz[$gJC7j - 1]; goto cuisP; cuisP: goto iHpcL; goto IvRK2; IvRK2: case "\162\162": goto xyse5; xyse5: $JDBfz = ["\333\x8c\xda\xa9", "\xd8\xaf\xd9\210", "\330\263\xd9\207", "\332\206\xd9\x87\330\247\330\261", "\xd9\xbe\xd9\206\xd8\254", "\xd8\xb4\330\xb4", "\331\207\331\201\xd8\xaa", "\331\x87\xd8\xb4\330\252", "\xd9\x86\331\207", "\330\xaf\331\x87", "\333\x8c\330\xa7\330\xb2\xd8\xaf\331\x87", "\xd8\xaf\331\x88\xd8\xa7\330\xb2\330\xaf\xd9\207", "\330\263\333\214\330\xb2\xd8\257\xd9\207", "\xda\206\xd9\x87\xd8\xa7\330\xb1\xd8\xaf\xd9\x87", "\331\xbe\330\247\xd9\x86\330\xb2\xd8\xaf\xd9\x87", "\330\264\xd8\247\331\206\xd8\262\xd8\257\331\x87", "\331\x87\331\201\xd8\257\xd9\x87", "\xd9\x87\330\xac\330\xaf\xd9\207", "\xd9\206\331\210\330\262\xd8\xaf\xd9\x87", "\xd8\xa8\333\x8c\330\263\330\xaa", "\xd8\xa8\333\x8c\xd8\263\330\252\40\331\x88\x20\333\x8c\332\251", "\xd8\250\xdb\x8c\330\xb3\330\xaa\x20\xd9\210\40\330\xaf\xd9\x88", "\330\250\333\214\330\263\xd8\xaa\x20\331\x88\x20\xd8\263\xd9\x87", "\330\xa8\333\214\xd8\263\330\xaa\x20\xd9\210\40\332\206\xd9\207\330\247\xd8\xb1", "\xd8\250\333\214\xd8\xb3\330\xaa\x20\331\x88\40\xd9\xbe\xd9\x86\xd8\xac", "\330\xa8\333\214\330\263\xd8\xaa\x20\331\210\x20\330\xb4\330\xb4", "\xd8\250\xdb\214\330\263\330\xaa\x20\331\210\40\xd9\x87\xd9\201\330\xaa", "\xd8\xa8\333\214\xd8\263\xd8\252\40\331\x88\40\331\x87\330\264\330\xaa", "\xd8\250\333\214\xd8\xb3\xd8\252\40\331\x88\x20\331\x86\331\x87", "\330\xb3\xdb\x8c", "\330\263\333\x8c\40\331\210\x20\333\214\332\xa9"]; goto TRTpf; TRTpf: $F3mnX[$Ne9st] = $JDBfz[$gJC7j - 1]; goto a5swb; a5swb: goto iHpcL; goto bMGD3; bMGD3: case "\x72\150": goto P3JbY; wzo3c: goto iHpcL; goto teLwy; P3JbY: $JDBfz = [__("\123\x61\164\x75\x72\144\x61\x79", PR__PKG__JALALI), __("\123\165\x6e\x64\141\x79", PR__PKG__JALALI), __("\115\157\156\144\141\171", PR__PKG__JALALI), __("\x54\x75\x65\163\x64\141\x79", PR__PKG__JALALI), __("\x57\145\144\156\x65\x73\144\x61\171", PR__PKG__JALALI), __("\124\150\165\162\163\x64\141\171", PR__PKG__JALALI), __("\x46\162\x69\x64\x61\171", PR__PKG__JALALI)]; goto uvP3K; uvP3K: $F3mnX[$Ne9st] = $JDBfz[$gJC7j]; goto wzo3c; teLwy: case "\x73\x68": goto c9_Jj; c7aas: goto iHpcL; goto CA25J; c9_Jj: $JDBfz = [__("\x53\x6e\141\153\x65", PR__PKG__JALALI), __("\110\157\162\x73\x65", PR__PKG__JALALI), __("\107\x6f\141\164", PR__PKG__JALALI), __("\115\157\156\x6b\145\x79", PR__PKG__JALALI), __("\x52\x6f\157\x73\x74\145\162", PR__PKG__JALALI), __("\104\157\x67", PR__PKG__JALALI), __("\x50\151\147", PR__PKG__JALALI), __("\x52\x61\x74", PR__PKG__JALALI), __("\117\170", PR__PKG__JALALI), __("\x54\x69\x67\x65\x72", PR__PKG__JALALI), __("\122\x61\142\x62\151\x74", PR__PKG__JALALI), __("\x44\162\x61\147\157\156", PR__PKG__JALALI)]; goto c4hvJ; c4hvJ: $F3mnX[$Ne9st] = $JDBfz[$gJC7j % 12]; goto c7aas; CA25J: case "\x6d\x62": goto mUGV1; WpTxq: goto iHpcL; goto MvjQW; mUGV1: $JDBfz = ["\xd8\255\xd9\x85\xd9\204", "\xd8\253\331\x88\330\261", "\330\254\xd9\x88\330\xb2\xd8\xa7", "\330\xb3\330\xb1\330\267\330\xa7\331\206", "\xd8\xa7\xd8\263\330\257", "\330\xb3\xd9\x86\xd8\250\xd9\x84\331\x87", "\xd9\x85\xdb\x8c\330\262\330\247\xd9\206", "\xd8\xb9\xd9\x82\xd8\xb1\330\250", "\xd9\x82\xd9\210\330\xb3", "\330\xac\330\xaf\xdb\x8c", "\330\xaf\xd9\204\xd9\x88", "\xd8\xad\xd9\x88\330\xaa"]; goto Th0yT; Th0yT: $F3mnX[$Ne9st] = $JDBfz[$gJC7j - 1]; goto WpTxq; MvjQW: case "\x66\x66": goto s7EFJ; kURku: $F3mnX[$Ne9st] = $JDBfz[(int) ($gJC7j / 3.1)]; goto sSvFd; s7EFJ: $JDBfz = [__("\123\160\162\x69\156\x67", PR__PKG__JALALI), __("\123\x75\x6d\155\145\x72", PR__PKG__JALALI), __("\101\x75\x74\165\155\156", PR__PKG__JALALI), __("\x57\151\156\x74\145\x72", PR__PKG__JALALI)]; goto kURku; sSvFd: goto iHpcL; goto bUWpR; bUWpR: case "\153\155": goto p9LN0; ztXuG: $F3mnX[$Ne9st] = $JDBfz[$gJC7j - 1]; goto sZW_5; p9LN0: $JDBfz = ["\xd9\x81\xd8\xb1", "\xd8\xa7\330\xb1", "\330\256\xd8\261", "\330\252\xdb\x8c\xe2\200\215", "\xd9\x85\330\261", "\xd8\264\331\x87\xe2\200\215", "\331\x85\331\207\xe2\x80\215", "\xd8\xa2\xd8\xa8\xe2\x80\x8d", "\xd8\xa2\330\xb0", "\xd8\xaf\xdb\214", "\xd8\250\xd9\207\xe2\200\215", "\xd8\xa7\330\263\xe2\x80\x8d"]; goto ztXuG; sZW_5: goto iHpcL; goto VYj3J; VYj3J: case "\x6b\x68": goto DKZA8; j5UYa: $F3mnX[$Ne9st] = $JDBfz[$gJC7j]; goto FXtyJ; FXtyJ: goto iHpcL; goto YykY9; DKZA8: $JDBfz = [__("\123\141\x74", PR__PKG__JALALI), __("\x53\x75\x6e", PR__PKG__JALALI), __("\115\157\156", PR__PKG__JALALI), __("\124\x75\145", PR__PKG__JALALI), __("\127\145\x64", PR__PKG__JALALI), __("\x54\x68\x75", PR__PKG__JALALI), __("\106\162\151", PR__PKG__JALALI)]; goto j5UYa; YykY9: default: $F3mnX[$Ne9st] = $gJC7j; } goto lGDzy; hG_lC: ZSf5p: goto FWAWQ; FWAWQ: } goto GFVBO; GFVBO: GXThR: goto cfwjh; cfwjh: return $kNKrK === '' ? $F3mnX : implode($kNKrK, $F3mnX); goto F2X6D; F2X6D: } public function number($PWTiS, $kNKrK = "\x65\156", $iQBPC = "\331\253") { } public function gregorian2persian($XMb4B, $omtsZ, $YiJYX, $kNKrK = '') { goto kXZLG; aDKDl: $a8xJj = 365 * $XMb4B + (int) (($KD1o6 + 3) / 4) - (int) (($KD1o6 + 99) / 100) + (int) (($KD1o6 + 399) / 400) - 80 + $YiJYX + $IMGGZ[$omtsZ - 1]; goto owrPm; wJQV2: PMEE7: goto l2fc0; ScqgR: XOOdf: goto WSqpN; yDUR8: if (!($a8xJj > 365)) { goto PMEE7; } goto x37qe; a3seg: $a8xJj %= 1461; goto vXOay; x37qe: $a8xJj = ($a8xJj - 1) % 365; goto wJQV2; C9scu: CtJMS: goto TNbB_; a6U80: uCaFQ: goto sVhIP; sVhIP: return $kNKrK === '' ? [$F8pqV, $ZsPNt, $lF2Yb] : $F8pqV . $kNKrK . $ZsPNt . $kNKrK . $lF2Yb; goto NT9Gb; kXZLG: [$XMb4B, $omtsZ, $YiJYX] = explode("\137", $this->translateNumber($XMb4B . "\x5f" . $omtsZ . "\137" . $YiJYX)); goto yriAT; WSqpN: $ZsPNt = 1 + (int) ($a8xJj / 31); goto p1MjO; VDkzL: $F8pqV += 4 * (int) ($a8xJj / 1461); goto a3seg; tAJYM: goto uCaFQ; goto ScqgR; qWLiP: $XMb4B -= 621; goto FDqxt; IGy5H: GJHLK: goto F2gt5; N5qyA: $lF2Yb = 1 + ($a8xJj - 186) % 30; goto tAJYM; p1MjO: $lF2Yb = 1 + $a8xJj % 31; goto a6U80; rzEu0: $ZsPNt = 7 + (int) (($a8xJj - 186) / 30); goto N5qyA; vXOay: $F8pqV += (int) (($a8xJj - 1) / 365); goto yDUR8; FDqxt: goto CtJMS; goto IGy5H; Bu_Q8: if ($XMb4B > 1600) { goto GJHLK; } goto o0x5H; o0x5H: $F8pqV = 0; goto qWLiP; l2fc0: if ($a8xJj < 186) { goto XOOdf; } goto rzEu0; yriAT: $IMGGZ = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]; goto Bu_Q8; TNbB_: $KD1o6 = $omtsZ > 2 ? $XMb4B + 1 : $XMb4B; goto aDKDl; owrPm: $F8pqV += 33 * (int) ($a8xJj / 12053); goto xg418; F2gt5: $F8pqV = 979; goto bLVya; bLVya: $XMb4B -= 1600; goto C9scu; xg418: $a8xJj %= 12053; goto VDkzL; NT9Gb: } public function persian2gregorian($F8pqV, $ZsPNt, $lF2Yb, $kNKrK = '') { goto cBRBw; cLqpM: $XMb4B += 4 * (int) ($a8xJj / 1461); goto xXO61; xl2dK: $XMb4B += 400 * (int) ($a8xJj / 146097); goto LaSWX; KO1qv: $XMb4B += (int) (($a8xJj - 1) / 365); goto qqbVg; k6FMv: $a8xJj++; goto HhS7G; r3jlh: return $kNKrK === '' ? [$XMb4B, $omtsZ, $YiJYX] : $XMb4B . $kNKrK . $omtsZ . $kNKrK . $YiJYX; goto ruEoS; xXO61: $a8xJj %= 1461; goto KO1qv; qqbVg: if (!($a8xJj > 365)) { goto GQ2Pm; } goto M0gsO; HhS7G: Tl8KE: goto OScr0; r9gA8: foreach ($hIEYW as $omtsZ => $r1ytq) { goto tZork; uPNuZ: uwNUT: goto bdcTo; bdcTo: $YiJYX -= $r1ytq; goto zYw8_; zYw8_: y6FHt: goto X_kjA; tZork: if (!($YiJYX <= $r1ytq)) { goto uwNUT; } goto e7PWi; e7PWi: goto L5Q1I; goto uPNuZ; X_kjA: } goto Wam2S; cBRBw: [$F8pqV, $ZsPNt, $lF2Yb] = explode("\x5f", $this->translateNumber($F8pqV . "\137" . $ZsPNt . "\x5f" . $lF2Yb)); goto rYJbP; gnYnc: if (!($a8xJj > 36524)) { goto l3La4; } goto h4XC_; hlJPn: $a8xJj = 365 * $F8pqV + (int) ($F8pqV / 33) * 8 + (int) (($F8pqV % 33 + 3) / 4) + 78 + $lF2Yb + ($ZsPNt < 7 ? ($ZsPNt - 1) * 31 : ($ZsPNt - 7) * 30 + 186); goto xl2dK; G7eOf: $YiJYX = $a8xJj + 1; goto gJmb_; AAqbS: bxpPP: goto hX0fj; Gk03N: if (!($a8xJj >= 365)) { goto Tl8KE; } goto k6FMv; S2Jb7: goto FY6aG; goto AAqbS; Ujm8W: $hIEYW = [0, 31, ($XMb4B % 4 == 0 and $XMb4B % 100 != 0 or $XMb4B % 400 == 0) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; goto r9gA8; hX0fj: $XMb4B = 1600; goto JnLtQ; LaSWX: $a8xJj %= 146097; goto gnYnc; gJmb_: $omtsZ = 0; goto Ujm8W; M0gsO: $a8xJj = ($a8xJj - 1) % 365; goto Vk9gc; Vk9gc: GQ2Pm: goto G7eOf; JMtFx: FY6aG: goto hlJPn; yCner: $XMb4B = 621; goto S2Jb7; Wm923: $a8xJj %= 36524; goto Gk03N; OScr0: l3La4: goto cLqpM; Wam2S: L5Q1I: goto r3jlh; rYJbP: if ($F8pqV > 979) { goto bxpPP; } goto yCner; h4XC_: $XMb4B += 100 * (int) (--$a8xJj / 36524); goto Wm923; JnLtQ: $F8pqV -= 979; goto JMtFx; ruEoS: } public function date($QgPTM, $KUiox = '', $e17f7 = "\146\141") { goto NCjq_; w6fP0: if (!($oUuk7 < $OhNkC)) { goto bqDXy; } goto eXRi1; h0BFU: goto mOIsf; goto C9rBI; YumBb: $oUuk7 = 0; goto RNwbB; VWYfz: if (!($V3Leo == "\x5c")) { goto yZ25H; } goto roGYe; db_k7: [$XS4R2, $YUocV, $W0CL7] = $this->gregorian2persian($TdUgk[8], $TdUgk[3], $TdUgk[2]); goto Ol8d1; C9rBI: yZ25H: goto PLn5B; yjEW8: bqDXy: goto aS32s; seTD9: $lCMPQ = $Jp4Yn + intval($KUiox === '' ? time() : $this->translateNumber($KUiox)); goto vMFNf; Q30Kp: $OhcJ2 = $XS4R2 % 33 % 4 - 1 == (int) ($XS4R2 % 33 * 0.05) ? 1 : 0; goto eZNBo; bpxIu: $Cu7CH = ''; goto YumBb; vMFNf: $TdUgk = explode("\x5f", date("\110\x5f\151\x5f\152\137\156\137\x4f\x5f\120\x5f\163\137\x77\x5f\x59", $lCMPQ)); goto db_k7; eZNBo: $OhNkC = strlen($QgPTM); goto bpxIu; RNwbB: s0bKW: goto w6fP0; NCjq_: $Jp4Yn = 0; goto seTD9; roGYe: $Cu7CH .= substr($QgPTM, ++$oUuk7, 1); goto h0BFU; Ol8d1: $yxOP1 = $YUocV < 7 ? ($YUocV - 1) * 31 + $W0CL7 - 1 : ($YUocV - 7) * 30 + $W0CL7 + 185; goto Q30Kp; aS32s: return $e17f7 != "\x65\156" ? $this->translateNumber($Cu7CH, "\146\x61", "\56") : $Cu7CH; goto e4Qgz; m7SZN: EE0ob: goto fWOUb; yK2k0: jqmvM: goto m7SZN; eXRi1: $V3Leo = substr($QgPTM, $oUuk7, 1); goto VWYfz; PLn5B: switch ($V3Leo) { case "\105": case "\x52": case "\x78": case "\130": $Cu7CH .= "\x68\x74\164\160\x3a\57\57\x6a\x64\146\x2e\x73\143\x72\x2e\x69\162"; goto EE0ob; case "\102": case "\x65": case "\147": case "\107": case "\150": case "\x49": case "\124": case "\x75": case "\132": $Cu7CH .= date($V3Leo, $lCMPQ); goto EE0ob; case "\141": $Cu7CH .= $TdUgk[0] < 12 ? __("\x50\115", PR__PKG__JALALI) : __("\x41\115", PR__PKG__JALALI); goto EE0ob; case "\101": $Cu7CH .= $TdUgk[0] < 12 ? __("\x42\x65\146\x6f\162\145\x20\156\157\157\156", PR__PKG__JALALI) : __("\101\146\164\x65\162\40\x6e\157\157\x6e", PR__PKG__JALALI); goto EE0ob; case "\142": $Cu7CH .= (int) ($YUocV / 3.1) + 1; goto EE0ob; case "\x63": $Cu7CH .= $XS4R2 . "\57" . $YUocV . "\57" . $W0CL7 . "\40\330\214" . $TdUgk[0] . "\72" . $TdUgk[1] . "\x3a" . $TdUgk[6] . "\x20" . $TdUgk[5]; goto EE0ob; case "\x43": $Cu7CH .= (int) (($XS4R2 + 99) / 100); goto EE0ob; case "\144": $Cu7CH .= $W0CL7 < 10 ? "\60" . $W0CL7 : $W0CL7; goto EE0ob; case "\x44": $Cu7CH .= $this->dateWords(["\153\x68" => $TdUgk[7]], "\x20"); goto EE0ob; case "\x66": $Cu7CH .= $this->dateWords(["\146\x66" => $YUocV], "\40"); goto EE0ob; case "\x4d": case "\106": $Cu7CH .= $this->dateWords(["\155\x6d" => $YUocV], "\x20"); goto EE0ob; case "\x48": $Cu7CH .= $TdUgk[0]; goto EE0ob; case "\151": $Cu7CH .= $TdUgk[1]; goto EE0ob; case "\152": $Cu7CH .= $W0CL7; goto EE0ob; case "\x4a": $Cu7CH .= $this->dateWords(["\x72\162" => $W0CL7], "\40"); goto EE0ob; case "\153": $Cu7CH .= $this->translateNumber(100 - (int) ($yxOP1 / ($OhcJ2 + 365) * 1000) / 10, $e17f7); goto EE0ob; case "\113": $Cu7CH .= $this->translateNumber((int) ($yxOP1 / ($OhcJ2 + 365) * 1000) / 10, $e17f7); goto EE0ob; case "\154": $Cu7CH .= $this->dateWords(["\162\150" => $TdUgk[7]], "\40"); goto EE0ob; case "\114": $Cu7CH .= $OhcJ2; goto EE0ob; case "\155": $Cu7CH .= $YUocV > 9 ? $YUocV : "\60" . $YUocV; goto EE0ob; case "\x6e": $Cu7CH .= $YUocV; goto EE0ob; case "\116": $Cu7CH .= $TdUgk[7] + 1; goto EE0ob; case "\x6f": goto kTPMj; kTPMj: $BkWAo = $TdUgk[7] == 6 ? 0 : $TdUgk[7] + 1; goto y_Wpn; kXXVZ: goto EE0ob; goto oi29P; hZui5: $Cu7CH .= ($BkWAo > $yxOP1 + 3 and $yxOP1 < 3) ? $XS4R2 - 1 : ((3 - $uWwxS > $BkWAo and $uWwxS < 3) ? $XS4R2 + 1 : $XS4R2); goto kXXVZ; y_Wpn: $uWwxS = 364 + $OhcJ2 - $yxOP1; goto hZui5; oi29P: case "\x4f": $Cu7CH .= $TdUgk[4]; goto EE0ob; case "\160": $Cu7CH .= $this->dateWords(["\155\142" => $YUocV], "\x20"); goto EE0ob; case "\x50": $Cu7CH .= $TdUgk[5]; goto EE0ob; case "\161": $Cu7CH .= $this->dateWords(["\x73\x68" => $XS4R2], "\40"); goto EE0ob; case "\x51": $Cu7CH .= $OhcJ2 + 364 - $yxOP1; goto EE0ob; case "\x72": goto c_qKQ; oadZD: $Cu7CH .= $TdUgk[0] . "\x3a" . $TdUgk[1] . "\72" . $TdUgk[6] . "\40" . $TdUgk[4] . "\x20" . $JDBfz["\x72\x68"] . "\330\214\40" . $W0CL7 . "\x20" . $JDBfz["\155\x6d"] . "\x20" . $XS4R2; goto Lmulk; Lmulk: goto EE0ob; goto vc8IX; c_qKQ: $JDBfz = $this->dateWords(["\162\150" => $TdUgk[7], "\x6d\155" => $YUocV]); goto oadZD; vc8IX: case "\x73": $Cu7CH .= $TdUgk[6]; goto EE0ob; case "\123": $Cu7CH .= "\xd8\xa7\xd9\205"; goto EE0ob; case "\x74": $Cu7CH .= $YUocV != 12 ? 31 - (int) ($YUocV / 6.5) : $OhcJ2 + 29; goto EE0ob; case "\125": $Cu7CH .= $lCMPQ; goto EE0ob; case "\x76": $Cu7CH .= $this->dateWords(["\x73\x73" => $XS4R2 % 100], "\40"); goto EE0ob; case "\126": $Cu7CH .= $this->dateWords(["\x73\163" => $XS4R2], "\40"); goto EE0ob; case "\167": $Cu7CH .= $TdUgk[7] == 6 ? 0 : $TdUgk[7] + 1; goto EE0ob; case "\127": goto BYwUf; T98xl: $fEWxb += 7; goto t8Klw; t8Klw: dqNbV: goto ESSV0; axi_l: goto SDKwx; goto mSmV4; a8zUg: $cYY_O = $fEWxb + $OhcJ2; goto CQmL6; SNYh7: $Cu7CH .= ($OhcJ2 + 363 - $yxOP1 < $cYY_O and $cYY_O < 3) ? "\x30\61" : ($gJC7j < 10 ? "\x30" . $gJC7j : $gJC7j); goto MPW6e; KZuyV: if (!($fEWxb < 0)) { goto dqNbV; } goto T98xl; CQmL6: if (!($cYY_O == 7)) { goto av9E7; } goto dmN6o; ESSV0: $gJC7j = (int) (($yxOP1 + $fEWxb) / 7); goto pWy85; WWo6w: goto SDKwx; goto MUwe0; dmN6o: $cYY_O = 0; goto Dg_QY; MPW6e: goto EE0ob; goto pidED; pWy85: if ($fEWxb < 4) { goto aewAG; } goto ce3ML; ce3ML: if ($gJC7j < 1) { goto IolUo; } goto WWo6w; k0pgL: $gJC7j++; goto axi_l; mSmV4: IolUo: goto rfHek; MUwe0: aewAG: goto k0pgL; BYwUf: $fEWxb = ($TdUgk[7] == 6 ? 0 : $TdUgk[7] + 1) - $yxOP1 % 7; goto KZuyV; Dg_QY: av9E7: goto SNYh7; dlfIX: SDKwx: goto a8zUg; rfHek: $gJC7j = ($fEWxb == 4 or $fEWxb == ($XS4R2 % 33 % 4 - 2 == (int) ($XS4R2 % 33 * 0.05) ? 5 : 4)) ? 53 : 52; goto dlfIX; pidED: case "\171": $Cu7CH .= substr($XS4R2, 2, 2); goto EE0ob; case "\x59": $Cu7CH .= $XS4R2; goto EE0ob; case "\172": $Cu7CH .= $yxOP1; goto EE0ob; default: $Cu7CH .= $V3Leo; } goto yK2k0; q3mTz: goto s0bKW; goto yjEW8; RbEsD: $oUuk7++; goto q3mTz; fWOUb: mOIsf: goto RbEsD; e4Qgz: } public function translateNumber($Pfuek, $FFOOb = "\x65\x6e", $iQBPC = "\xd9\xab") { return $this->getTranslator()->translateNumber($Pfuek, $FFOOb, $iQBPC); } public function getDate($KUiox = '', $Z392O = "\x41\x73\151\x61\57\124\x65\x68\x72\x61\156", $qM8Ui = "\x65\x6e") { goto HCsea; yeFbc: $TdUgk = explode("\x5f", $this->date("\106\x5f\x47\137\151\137\x6a\x5f\x6c\137\156\x5f\163\x5f\167\137\131\x5f\172", $lCMPQ, $qM8Ui)); goto n804m; n804m: return ["\163\145\x63\157\156\x64\163" => $this->translateNumber((int) $this->translateNumber($TdUgk[6]), $qM8Ui), "\x6d\x69\x6e\x75\164\145\x73" => $this->translateNumber((int) $this->translateNumber($TdUgk[2]), $qM8Ui), "\x68\x6f\165\162\x73" => $TdUgk[1], "\155\144\141\x79" => $TdUgk[3], "\167\x64\x61\171" => $TdUgk[7], "\x6d\x6f\x6e" => $TdUgk[5], "\x79\x65\141\x72" => $TdUgk[8], "\x79\144\141\x79" => $TdUgk[9], "\167\x65\x65\x6b\144\141\x79" => $TdUgk[4], "\x6d\157\x6e\x74\150" => $TdUgk[0], 0 => $this->translateNumber($lCMPQ, $qM8Ui)]; goto RfTM5; HCsea: $lCMPQ = $KUiox === '' ? time() : $this->translateNumber($KUiox); goto yeFbc; RfTM5: } public function makeTime($qpHM3 = '', $K1Tto = '', $KtnrV = '', $ZsPNt = '', $lF2Yb = '', $F8pqV = '', $Z392O = "\x41\x73\x69\x61\x2f\124\x65\x68\162\x61\156") { goto WcGkh; KQZ9q: $hgWBY = mktime($qpHM3); goto iorux; gbOp8: zCb4w: goto YxPoL; NDla2: goto AoBZ6; goto gp3vq; c5stx: $hgWBY = time(); goto ZbTRu; wjyQa: if ($K1Tto === '') { goto de1So; } goto bOLaj; DMbeJ: $TdUgk = explode("\137", $this->date("\x59\137\x6a", '', "\145\x6e")); goto s__Cj; MJY4u: goto cFV3m; goto SbrHn; SbrHn: F3G5X: goto JB26o; iWrsB: goto ZvlHt; goto ciF9w; V6k8M: AoBZ6: goto MJY4u; T833L: [$XMb4B, $omtsZ, $YiJYX] = $this->persian2gregorian($TdUgk[0], $ZsPNt, $TdUgk[1]); goto XJcmq; bOLaj: if ($KtnrV === '') { goto zCb4w; } goto TCHFT; Woh4D: jzf7A: goto NDla2; pkrga: ACbF6: goto qi9t0; ciF9w: LjQt4: goto c5stx; kB09h: if ($qpHM3 === '') { goto LjQt4; } goto KHoqN; BDjIB: return $hgWBY; goto mAKYH; M63YA: de1So: goto KQZ9q; KHoqN: [$qpHM3, $K1Tto, $KtnrV, $ZsPNt, $lF2Yb, $F8pqV] = explode("\x5f", $this->translateNumber($qpHM3 . "\x5f" . $K1Tto . "\x5f" . $KtnrV . "\137" . $ZsPNt . "\x5f" . $lF2Yb . "\x5f" . $F8pqV)); goto wjyQa; YxPoL: $hgWBY = mktime($qpHM3, $K1Tto); goto CRUjb; Eq97_: $hgWBY = mktime($qpHM3, $K1Tto, $KtnrV, $omtsZ, $YiJYX); goto Woh4D; TCHFT: if ($ZsPNt === '') { goto F3G5X; } goto DMbeJ; s__Cj: if ($lF2Yb === '') { goto QnnVl; } goto E0RwY; rJipB: goto Jw2r3; goto gbOp8; CRUjb: Jw2r3: goto HQS27; ZbTRu: ZvlHt: goto BDjIB; NapaU: date_default_timezone_set($Z392O); goto WNT_k; E0RwY: if ($F8pqV === '') { goto ACbF6; } goto cRvoQ; WNT_k: AEdDF: goto lAA7G; hS7bW: $hgWBY = mktime($qpHM3, $K1Tto, $KtnrV, $omtsZ, $YiJYX, $XMb4B); goto xosFN; lAA7G: $hgWBY = 0; goto kB09h; Th76S: cFV3m: goto rJipB; cRvoQ: [$XMb4B, $omtsZ, $YiJYX] = $this->persian2gregorian($F8pqV, $ZsPNt, $lF2Yb); goto hS7bW; HQS27: goto zBou8; goto M63YA; JB26o: $hgWBY = mktime($qpHM3, $K1Tto, $KtnrV); goto Th76S; qi9t0: [$XMb4B, $omtsZ, $YiJYX] = $this->persian2gregorian($TdUgk[0], $ZsPNt, $lF2Yb); goto Eq97_; xosFN: goto jzf7A; goto pkrga; gp3vq: QnnVl: goto T833L; iorux: zBou8: goto iWrsB; XJcmq: $hgWBY = mktime($qpHM3, $K1Tto, $KtnrV, $omtsZ); goto V6k8M; WcGkh: if (!($Z392O != "\154\x6f\x63\x61\x6c")) { goto AEdDF; } goto NapaU; mAKYH: } }
+/*   _______________________________________
+    |  Obfuscated by PMPR - Php Obfuscator  |
+    |             613b4ccec9f71             |
+    |_______________________________________|
+*/
+
+namespace Pmpr\Package\Jalali;
+
+use Pmpr\Common\Foundation\Manipulate\Type\ManipulateArray;
+
+class Converter extends Container
+{
+    
+    protected ?Translator $translator = null;
+    
+    public function __construct()
+    {
+        $this->translator = Translator::symcgieuakksimmu();
+        parent::__construct();
+    }
+    
+    public function kkkikouyuqigocai() : ?Translator
+    {
+        return $this->translator;
+    }
+    
+    public function eiaysiqcywusmwoe($mwemskcucwsyycwm)
+    {
+        $qcgkuqesqqymcuui = $this->yqeyqmywaiwkkcao(["\155\155" => (int) $mwemskcucwsyycwm]);
+        return ManipulateArray::get($qcgkuqesqqymcuui, "\155\155", $qcgkuqesqqymcuui);
+    }
+    
+    public function ogoquecgeowwigwk($sseomcuueskqeayq, $ikiykmwgkuqwcmcs, $yywykyucyekisogg) : bool
+    {
+        goto yiwiqaqmwiogawym;
+        yiwiqaqmwiogawym:
+        [$sseomcuueskqeayq, $ikiykmwgkuqwcmcs, $yywykyucyekisogg] = explode("\137", $this->msywmyaoqmaegsuy($sseomcuueskqeayq . "\137" . $ikiykmwgkuqwcmcs . "\137" . $yywykyucyekisogg));
+        goto goacqqsgaaigyuaw;
+        goacqqsgaaigyuaw:
+        $l_d = $sseomcuueskqeayq == 12 ? $yywykyucyekisogg % 33 % 4 - 1 == (int) ($yywykyucyekisogg % 33 * 0.05) ? 30 : 29 : 31 - (int) ($sseomcuueskqeayq / 6.5);
+        goto meawswgwagoqgkye;
+        meawswgwagoqgkye:
+        return !($sseomcuueskqeayq > 12 or $ikiykmwgkuqwcmcs > $l_d or $sseomcuueskqeayq < 1 or $ikiykmwgkuqwcmcs < 1 or $yywykyucyekisogg < 1);
+        goto wcesymwqykqoyuqk;
+        wcesymwqykqoyuqk:
+    }
+    
+    public function yqeyqmywaiwkkcao($uomewyckeuqoqocu, $ugkymqicywakcemw = '') : string
+    {
+        goto uguigkcmukuouway;
+        esuiysskoweawsue:
+        return $ugkymqicywakcemw === '' ? $uomewyckeuqoqocu : implode($ugkymqicywakcemw, $uomewyckeuqoqocu);
+        goto gaomwagkcciesyqy;
+        uqqaiagaeqgqgaiy:
+        usqgaogkqgemuima:
+        goto esuiysskoweawsue;
+        uguigkcmukuouway:
+        foreach ($uomewyckeuqoqocu as $sqeykgyoooqysmca => $mqwsmsykyouoomgm) {
+            goto foeeqckqsyockkak;
+            iekumemscwieugqw:
+            switch ($sqeykgyoooqysmca) {
+                case "\x73\163":
+                    goto goeoymmqqqeeoime;
+                    qcessicwuikwqsis:
+                    $asikeqkqwawmicqq = $ygaqkccwykqkamoo[substr($mqwsmsykyouoomgm, 2 - $yqsoiieuuycqwmec, 2) - 10];
+                    goto yssscwioiyygssec;
+                    coywmiyqgsweuiic:
+                    goto egasokooagakisiy;
+                    goto siqagquguiemuoku;
+                    ickcmqoiosquugwe:
+                    $wwgugecciuywomgm = $asikeqkqwawmicqq = $qcqackumcuqyoiku = '';
+                    goto qmeoaqmsuseueqiy;
+                    cgewcsueoyaeikgm:
+                    $ukoioyqsqkuskqom = ['', '', __("\x54\x77\145\156\164\171", PR__PKG__JALALI), __("\x54\x68\x69\162\164\x79", PR__PKG__JALALI), __("\x46\157\x72\x74\x79", PR__PKG__JALALI), __("\x46\151\146\164\x79", PR__PKG__JALALI), __("\x53\151\x78\164\171", PR__PKG__JALALI), __("\123\x65\166\x65\156\164\171", PR__PKG__JALALI), __("\105\151\x67\150\164\171", PR__PKG__JALALI), __("\x4e\x69\x6e\145\164\x79", PR__PKG__JALALI)];
+                    goto sukskmcwsoysiuqu;
+                    qmeoaqmsuseueqiy:
+                    if ($eouwgmemicwiwise == 1) {
+                        goto qgegkeomwscwwiuw;
+                    }
+                    goto ygkcacsyyckescqs;
+                    ygkcacsyyckescqs:
+                    $weqkcuqkqomgaiou = substr($mqwsmsykyouoomgm, 3 - $yqsoiieuuycqwmec, 1);
+                    goto cuoqqgaygogsmmic;
+                    ieumumsgyguceusy:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = ($mqwsmsykyouoomgm > 99 ? str_replace(["\61\x32", "\x31\63", "\61\64", "\61\x39", "\62\x30"], ["\331\x87\xd8\262\xd8\247\330\xb1\40\331\x88\40\xd8\257\xd9\210\333\214\xd8\xb3\xd8\252", "\xd9\207\xd8\262\xd8\247\330\261\x20\xd9\210\40\xd8\263\333\x8c\330\xb5\330\257", "\331\x87\330\262\xd8\xa7\xd8\xb1\x20\xd9\x88\x20\332\x86\xd9\x87\330\247\330\261\330\265\xd8\257", "\331\x87\330\262\xd8\xa7\330\xb1\40\xd9\x88\x20\xd9\x86\331\207\330\265\330\257", "\xd8\xaf\331\210\xd9\x87\330\262\xd8\xa7\330\261"], substr($mqwsmsykyouoomgm, 0, 2)) . (substr($mqwsmsykyouoomgm, 2, 2) == "\60\x30" ? '' : "\x20\xd9\210\40") : '') . $wwgugecciuywomgm . $kckiiskiksiousiy . $asikeqkqwawmicqq . $qcqackumcuqyoiku;
+                    goto coywmiyqgsweuiic;
+                    qwcegcuowwgiccos:
+                    $ygaqkccwykqkamoo = [__("\x54\145\x6e", PR__PKG__JALALI), __("\105\x6c\145\x76\x65\x6e", PR__PKG__JALALI), __("\x54\x77\x65\x6c\166\145", PR__PKG__JALALI), __("\x54\150\151\162\x74\x65\x65\156", PR__PKG__JALALI), __("\x46\x6f\x75\x72\x74\x65\x65\156", PR__PKG__JALALI), __("\106\151\146\x74\145\x65\156", PR__PKG__JALALI), __("\123\x69\170\x74\x65\x65\156", PR__PKG__JALALI), __("\x53\145\x76\x65\x6e\x74\145\145\156", PR__PKG__JALALI), __("\105\x69\x67\x68\164\x65\x65\x6e", PR__PKG__JALALI), __("\x4e\151\x6e\145\x74\145\145\156", PR__PKG__JALALI)];
+                    goto qcessicwuikwqsis;
+                    kooskuwkuayiuose:
+                    $kckiiskiksiousiy = '';
+                    goto qwcegcuowwgiccos;
+                    cuoqqgaygogsmmic:
+                    $kckiiskiksiousiy = ($eouwgmemicwiwise == 0 or $weqkcuqkqomgaiou == 0) ? '' : "\x20\331\210\40";
+                    goto cgewcsueoyaeikgm;
+                    yssscwioiyygssec:
+                    qmiwsequckckoaei:
+                    goto ieumumsgyguceusy;
+                    sukskmcwsoysiuqu:
+                    $wwgugecciuywomgm = $ukoioyqsqkuskqom[$eouwgmemicwiwise];
+                    goto igymseewwyiocoug;
+                    eiawsoasmscmqswa:
+                    $eouwgmemicwiwise = substr($mqwsmsykyouoomgm, 2 - $yqsoiieuuycqwmec, 1);
+                    goto ickcmqoiosquugwe;
+                    eyiamcekkgkiawqy:
+                    goto qmiwsequckckoaei;
+                    goto twkmiuomimomscew;
+                    goeoymmqqqeeoime:
+                    $yqsoiieuuycqwmec = strlen($mqwsmsykyouoomgm);
+                    goto eiawsoasmscmqswa;
+                    mqccmesakuemceqi:
+                    $qcqackumcuqyoiku = $uoumogqmkuousoia[$weqkcuqkqomgaiou];
+                    goto eyiamcekkgkiawqy;
+                    igymseewwyiocoug:
+                    $uoumogqmkuousoia = ['', __("\x4f\x6e\145", PR__PKG__JALALI), __("\124\167\x6f", PR__PKG__JALALI), __("\x54\x68\162\145\145", PR__PKG__JALALI), __("\x46\157\165\162", PR__PKG__JALALI), __("\106\151\166\x65", PR__PKG__JALALI), __("\123\151\x78", PR__PKG__JALALI), __("\x53\x65\166\145\x6e", PR__PKG__JALALI), __("\x45\x69\147\x68\x74", PR__PKG__JALALI), __("\x4e\x69\156\145", PR__PKG__JALALI)];
+                    goto mqccmesakuemceqi;
+                    twkmiuomimomscew:
+                    qgegkeomwscwwiuw:
+                    goto kooskuwkuayiuose;
+                    siqagquguiemuoku:
+                case "\x6d\x6d":
+                    goto ycakugokkqkuqyiu;
+                    oouoqimaaqcmccay:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm - 1];
+                    goto sycygoiaiqqageym;
+                    ycakugokkqkuqyiu:
+                    $uusmaiomayssaecw = ["\331\x81\330\261\331\x88\330\261\330\257\xdb\x8c\xd9\206", "\xd8\247\330\xb1\xd8\257\333\x8c\xd8\250\xd9\207\xd8\264\330\xaa", "\330\xae\330\xb1\xd8\xaf\xd8\247\xd8\257", "\xd8\xaa\xdb\214\330\xb1", "\xd9\x85\xd8\xb1\330\xaf\xd8\247\xd8\xaf", "\330\xb4\xd9\x87\xd8\xb1\xdb\214\331\x88\330\261", "\xd9\x85\331\x87\xd8\261", "\xd8\xa2\xd8\xa8\xd8\xa7\331\206", "\xd8\242\330\260\330\261", "\330\257\333\214", "\330\250\xd9\x87\331\x85\xd9\206", "\xd8\247\330\263\xd9\201\331\x86\xd8\257"];
+                    goto oouoqimaaqcmccay;
+                    sycygoiaiqqageym:
+                    goto egasokooagakisiy;
+                    goto gygawoqywkukmqee;
+                    gygawoqywkukmqee:
+                case "\x72\162":
+                    goto kciouyuaqkyqomam;
+                    wwkgkaecgiwggcck:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm - 1];
+                    goto umgaesggesswoaqe;
+                    umgaesggesswoaqe:
+                    goto egasokooagakisiy;
+                    goto qsygcycwieukkgwc;
+                    kciouyuaqkyqomam:
+                    $uusmaiomayssaecw = ["\xdb\x8c\332\251", "\xd8\257\331\x88", "\xd8\xb3\xd9\207", "\332\206\xd9\207\330\247\xd8\xb1", "\331\xbe\331\x86\330\xac", "\330\264\xd8\xb4", "\331\207\xd9\201\xd8\252", "\xd9\207\330\xb4\330\xaa", "\331\x86\xd9\207", "\xd8\257\331\207", "\xdb\x8c\xd8\xa7\330\xb2\330\xaf\xd9\207", "\xd8\257\xd9\x88\xd8\xa7\330\xb2\xd8\xaf\xd9\207", "\xd8\xb3\333\x8c\330\xb2\330\257\331\x87", "\xda\206\xd9\x87\330\247\xd8\xb1\330\257\331\x87", "\xd9\xbe\330\xa7\xd9\206\330\262\330\xaf\331\x87", "\xd8\xb4\330\247\xd9\x86\xd8\262\xd8\xaf\331\207", "\331\x87\331\201\xd8\xaf\xd9\x87", "\xd9\207\xd8\xac\xd8\257\xd9\207", "\331\206\331\210\xd8\xb2\330\257\331\207", "\xd8\250\333\x8c\xd8\xb3\xd8\xaa", "\330\xa8\xdb\214\xd8\263\330\252\40\331\x88\40\xdb\x8c\332\251", "\xd8\250\xdb\214\xd8\xb3\xd8\252\40\xd9\x88\40\xd8\xaf\331\x88", "\xd8\xa8\xdb\x8c\330\263\xd8\xaa\x20\xd9\210\x20\xd8\xb3\331\x87", "\330\xa8\333\214\330\xb3\330\252\x20\331\210\x20\xda\x86\xd9\207\330\247\330\xb1", "\xd8\xa8\xdb\214\xd8\xb3\xd8\252\40\331\x88\x20\331\xbe\xd9\206\330\254", "\330\250\xdb\214\xd8\263\330\252\x20\xd9\210\x20\330\264\xd8\264", "\330\xa8\xdb\x8c\330\xb3\330\252\40\xd9\210\40\331\207\331\x81\330\xaa", "\xd8\xa8\333\214\330\263\xd8\xaa\x20\xd9\210\x20\331\x87\330\xb4\xd8\xaa", "\xd8\xa8\xdb\x8c\xd8\263\xd8\252\40\331\210\40\xd9\x86\331\207", "\xd8\263\333\214", "\xd8\263\333\214\40\xd9\210\40\xdb\x8c\332\251"];
+                    goto wwkgkaecgiwggcck;
+                    qsygcycwieukkgwc:
+                case "\x72\x68":
+                    goto kiwqkcaekqqyuegq;
+                    quwcqmyokicssyew:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm];
+                    goto iqcogmsguwoikame;
+                    iqcogmsguwoikame:
+                    goto egasokooagakisiy;
+                    goto gimmuoqwckiseaik;
+                    kiwqkcaekqqyuegq:
+                    $uusmaiomayssaecw = [__("\x53\141\x74\x75\162\x64\x61\171", PR__PKG__JALALI), __("\123\165\156\x64\x61\x79", PR__PKG__JALALI), __("\x4d\157\x6e\x64\141\171", PR__PKG__JALALI), __("\124\165\x65\163\144\141\x79", PR__PKG__JALALI), __("\127\x65\144\156\x65\x73\x64\x61\x79", PR__PKG__JALALI), __("\x54\x68\165\162\x73\144\x61\171", PR__PKG__JALALI), __("\106\162\151\144\x61\x79", PR__PKG__JALALI)];
+                    goto quwcqmyokicssyew;
+                    gimmuoqwckiseaik:
+                case "\x73\150":
+                    goto cmqucgoewuyieoyk;
+                    yqykqysmiquwoasu:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm % 12];
+                    goto ayyweymyuuiauamo;
+                    ayyweymyuuiauamo:
+                    goto egasokooagakisiy;
+                    goto mosqsmqimqgqoase;
+                    cmqucgoewuyieoyk:
+                    $uusmaiomayssaecw = [__("\123\156\x61\153\145", PR__PKG__JALALI), __("\110\x6f\x72\163\x65", PR__PKG__JALALI), __("\x47\x6f\x61\x74", PR__PKG__JALALI), __("\x4d\x6f\156\x6b\x65\x79", PR__PKG__JALALI), __("\x52\157\157\x73\164\145\162", PR__PKG__JALALI), __("\104\x6f\147", PR__PKG__JALALI), __("\120\x69\x67", PR__PKG__JALALI), __("\122\141\164", PR__PKG__JALALI), __("\117\170", PR__PKG__JALALI), __("\x54\151\x67\145\162", PR__PKG__JALALI), __("\x52\141\x62\x62\151\x74", PR__PKG__JALALI), __("\x44\x72\x61\147\157\x6e", PR__PKG__JALALI)];
+                    goto yqykqysmiquwoasu;
+                    mosqsmqimqgqoase:
+                case "\x6d\x62":
+                    goto omugkkesagcyagmk;
+                    ygcsmkuycoagwyou:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm - 1];
+                    goto kqksuugcgsyeoayy;
+                    omugkkesagcyagmk:
+                    $uusmaiomayssaecw = ["\330\xad\xd9\x85\331\204", "\xd8\253\331\x88\330\261", "\xd8\254\331\210\xd8\xb2\330\xa7", "\330\xb3\330\261\xd8\267\330\xa7\xd9\x86", "\330\247\330\xb3\xd8\xaf", "\xd8\xb3\331\x86\330\xa8\331\204\331\x87", "\xd9\205\xdb\214\xd8\262\330\xa7\331\206", "\330\xb9\331\202\xd8\261\xd8\250", "\xd9\x82\331\210\xd8\263", "\330\xac\xd8\xaf\333\x8c", "\xd8\257\xd9\x84\331\210", "\xd8\xad\xd9\x88\330\252"];
+                    goto ygcsmkuycoagwyou;
+                    kqksuugcgsyeoayy:
+                    goto egasokooagakisiy;
+                    goto iggyqogweyosuikc;
+                    iggyqogweyosuikc:
+                case "\x66\146":
+                    goto qqewoyookaskiuek;
+                    ssoucoucsgccekwe:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[(int) ($mqwsmsykyouoomgm / 3.1)];
+                    goto qkcyqocqqwmqgqww;
+                    qkcyqocqqwmqgqww:
+                    goto egasokooagakisiy;
+                    goto miyqyeiwquwsacsm;
+                    qqewoyookaskiuek:
+                    $uusmaiomayssaecw = [__("\123\160\x72\x69\156\147", PR__PKG__JALALI), __("\x53\165\155\155\x65\x72", PR__PKG__JALALI), __("\x41\165\x74\165\155\x6e", PR__PKG__JALALI), __("\x57\x69\x6e\164\145\162", PR__PKG__JALALI)];
+                    goto ssoucoucsgccekwe;
+                    miyqyeiwquwsacsm:
+                case "\153\155":
+                    goto eegqyykygiccaoeo;
+                    eegqyykygiccaoeo:
+                    $uusmaiomayssaecw = ["\xd9\201\330\xb1", "\330\247\xd8\xb1", "\xd8\256\330\xb1", "\330\252\333\x8c\342\x80\x8d", "\331\205\330\261", "\330\264\xd9\x87\342\200\x8d", "\331\205\331\x87\xe2\200\x8d", "\xd8\xa2\xd8\xa8\342\x80\x8d", "\330\242\330\xb0", "\xd8\257\333\214", "\330\250\xd9\207\342\x80\215", "\330\247\xd8\263\342\x80\x8d"];
+                    goto ywqgcegomwaiuquc;
+                    ywqgcegomwaiuquc:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm - 1];
+                    goto wmmggowmigekyoso;
+                    wmmggowmigekyoso:
+                    goto egasokooagakisiy;
+                    goto soqqemyioggmoakg;
+                    soqqemyioggmoakg:
+                case "\x6b\150":
+                    goto acaqummmoyiemqss;
+                    suswcqoyyqkkquuo:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $uusmaiomayssaecw[$mqwsmsykyouoomgm];
+                    goto eeqesooyqagwawae;
+                    eeqesooyqagwawae:
+                    goto egasokooagakisiy;
+                    goto oqugqwcyomiaaoqu;
+                    acaqummmoyiemqss:
+                    $uusmaiomayssaecw = [__("\123\141\x74", PR__PKG__JALALI), __("\123\x75\x6e", PR__PKG__JALALI), __("\x4d\157\x6e", PR__PKG__JALALI), __("\124\165\145", PR__PKG__JALALI), __("\x57\x65\x64", PR__PKG__JALALI), __("\124\150\165", PR__PKG__JALALI), __("\x46\162\x69", PR__PKG__JALALI)];
+                    goto suswcqoyyqkkquuo;
+                    oqugqwcyomiaaoqu:
+                default:
+                    $uomewyckeuqoqocu[$sqeykgyoooqysmca] = $mqwsmsykyouoomgm;
+            }
+            goto hoeeyiowekaeemko;
+            kymkucucyeoeikim:
+            egasokooagakisiy:
+            goto usquiuuyiyqaeyiu;
+            foeeqckqsyockkak:
+            $mqwsmsykyouoomgm = (int) $this->ieacowssemeuewag($mqwsmsykyouoomgm);
+            goto iekumemscwieugqw;
+            usquiuuyiyqaeyiu:
+            mswsoaimesegiiic:
+            goto qicwaskssogcokgm;
+            hoeeyiowekaeemko:
+            kecwuwwcwokuksyq:
+            goto kymkucucyeoeikim;
+            qicwaskssogcokgm:
+        }
+        goto uqqaiagaeqgqgaiy;
+        gaomwagkcciesyqy:
+    }
+    
+    public function eusockqasqqmoess($ycskuuyucyuqisaq, $ugkymqicywakcemw = "\x65\x6e", $eqmcogmcemgigckm = "\xd9\xab")
+    {
+    }
+    
+    public function uuwciykyuogimcou($mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu, $ugkymqicywakcemw = '')
+    {
+        goto cgiscsqwwgqqaeqi;
+        owmuceyswmgueasi:
+        $sseomcuueskqeayq = 7 + (int) (($immmocykksywgkqu - 186) / 30);
+        goto mwsmsguqqkcwiiuk;
+        ueigkucgaucgeimc:
+        $yywykyucyekisogg += (int) (($immmocykksywgkqu - 1) / 365);
+        goto sggawugoykqcmsug;
+        wkeuuycukmuqiaom:
+        $immmocykksywgkqu = ($immmocykksywgkqu - 1) % 365;
+        goto wakmayaoqoskekqy;
+        cgiscsqwwgqqaeqi:
+        [$mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu] = explode("\137", $this->ieacowssemeuewag($mggkikkcoygokucs . "\x5f" . $gguqkwucwcyqgwem . "\137" . $asgqasceaecqgouu));
+        goto syiqkaasoueowwui;
+        ugqaaewwmkocwwgy:
+        $immmocykksywgkqu %= 12053;
+        goto wgewmqieuamsoayy;
+        sggawugoykqcmsug:
+        if (!($immmocykksywgkqu > 365)) {
+            goto soaccwqimeksgwiw;
+        }
+        goto wkeuuycukmuqiaom;
+        iwsuawwqomaowuii:
+        return $ugkymqicywakcemw === '' ? [$yywykyucyekisogg, $sseomcuueskqeayq, $ikiykmwgkuqwcmcs] : $yywykyucyekisogg . $ugkymqicywakcemw . $sseomcuueskqeayq . $ugkymqicywakcemw . $ikiykmwgkuqwcmcs;
+        goto wcugqegqsuuuwqao;
+        wakmayaoqoskekqy:
+        soaccwqimeksgwiw:
+        goto qmuwoecuacmkwgem;
+        mwsmsguqqkcwiiuk:
+        $ikiykmwgkuqwcmcs = 1 + ($immmocykksywgkqu - 186) % 30;
+        goto eeauyscekuckoues;
+        egyyiccaeeiooaua:
+        $mggkikkcoygokucs -= 1600;
+        goto scisgsyemmsekgos;
+        ooeausyowguqicuo:
+        $yywykyucyekisogg = 979;
+        goto egyyiccaeeiooaua;
+        wgewmqieuamsoayy:
+        $yywykyucyekisogg += 4 * (int) ($immmocykksywgkqu / 1461);
+        goto kqgcyoscsusgoaqi;
+        omqiayeucoioqoao:
+        $yywykyucyekisogg += 33 * (int) ($immmocykksywgkqu / 12053);
+        goto ugqaaewwmkocwwgy;
+        msemumccgceyugmg:
+        $sseomcuueskqeayq = 1 + (int) ($immmocykksywgkqu / 31);
+        goto wagqgeqymeqoeuyi;
+        giaacoqqqsekcayy:
+        if ($mggkikkcoygokucs > 1600) {
+            goto aegysmeecgcgayyw;
+        }
+        goto ewymsmkkiksgwysk;
+        wmywuusgukmmaams:
+        goto suqkuqygkkgwyaie;
+        goto gkyawqqcmigqgaiq;
+        scisgsyemmsekgos:
+        suqkuqygkkgwyaie:
+        goto cewmoqyysgsmuiya;
+        igooksugieceoege:
+        $immmocykksywgkqu = 365 * $mggkikkcoygokucs + (int) (($ieiiasomcciwwysc + 3) / 4) - (int) (($ieiiasomcciwwysc + 99) / 100) + (int) (($ieiiasomcciwwysc + 399) / 400) - 80 + $asgqasceaecqgouu + $g_d_m[$gguqkwucwcyqgwem - 1];
+        goto omqiayeucoioqoao;
+        cmegwsegsosyqcai:
+        $mggkikkcoygokucs -= 621;
+        goto wmywuusgukmmaams;
+        cewmoqyysgsmuiya:
+        $ieiiasomcciwwysc = $gguqkwucwcyqgwem > 2 ? $mggkikkcoygokucs + 1 : $mggkikkcoygokucs;
+        goto igooksugieceoege;
+        eeauyscekuckoues:
+        goto skkamseieeusycye;
+        goto eogwckcymuugikuy;
+        kqgcyoscsusgoaqi:
+        $immmocykksywgkqu %= 1461;
+        goto ueigkucgaucgeimc;
+        ewymsmkkiksgwysk:
+        $yywykyucyekisogg = 0;
+        goto cmegwsegsosyqcai;
+        syiqkaasoueowwui:
+        $g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+        goto giaacoqqqsekcayy;
+        qmuwoecuacmkwgem:
+        if ($immmocykksywgkqu < 186) {
+            goto wiysogeqqwgioyka;
+        }
+        goto owmuceyswmgueasi;
+        gkyawqqcmigqgaiq:
+        aegysmeecgcgayyw:
+        goto ooeausyowguqicuo;
+        eogwckcymuugikuy:
+        wiysogeqqwgioyka:
+        goto msemumccgceyugmg;
+        wagqgeqymeqoeuyi:
+        $ikiykmwgkuqwcmcs = 1 + $immmocykksywgkqu % 31;
+        goto qoqskyuuwueqkquk;
+        qoqskyuuwueqkquk:
+        skkamseieeusycye:
+        goto iwsuawwqomaowuii;
+        wcugqegqsuuuwqao:
+    }
+    
+    public function iiemucyoiawywqmw($yywykyucyekisogg, $sseomcuueskqeayq, $ikiykmwgkuqwcmcs, $ugkymqicywakcemw = '')
+    {
+        goto kqqiegkuqagcqsya;
+        kosaqwikueyksqmw:
+        if (!($immmocykksywgkqu > 36524)) {
+            goto qgeugwymkkiacwoc;
+        }
+        goto gicyayswqyuoekcq;
+        eekcoeikaeaaeyii:
+        $mggkikkcoygokucs += (int) (($immmocykksywgkqu - 1) / 365);
+        goto cogywoqcqummsyus;
+        uaqackioaiqwcocy:
+        foreach ($ymccyoouuqkaacik as $gguqkwucwcyqgwem => $mokouoooiwsmcmiu) {
+            goto oomguqikqokqwgku;
+            oomguqikqokqwgku:
+            if (!($asgqasceaecqgouu <= $mokouoooiwsmcmiu)) {
+                goto acsqgiuageaasiyy;
+            }
+            goto samwkqgwouggsguc;
+            samwkqgwouggsguc:
+            goto ouamogymawucwswu;
+            goto wyuemgggaqogsmsq;
+            wyuemgggaqogsmsq:
+            acsqgiuageaasiyy:
+            goto guykyqecgswcsmws;
+            guykyqecgswcsmws:
+            $asgqasceaecqgouu -= $mokouoooiwsmcmiu;
+            goto kkumywowcoycymeo;
+            kkumywowcoycymeo:
+            mugqyyeayeyggqqk:
+            goto miweggwqeiaeweia;
+            miweggwqeiaeweia:
+        }
+        goto cscusseysqygsoiy;
+        sockeswygwcskeuq:
+        $gguqkwucwcyqgwem = 0;
+        goto mkwkkmkgiqiamacc;
+        cscusseysqygsoiy:
+        ouamogymawucwswu:
+        goto isgwkwacoyimiauk;
+        isgwkwacoyimiauk:
+        return $ugkymqicywakcemw === '' ? [$mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu] : $mggkikkcoygokucs . $ugkymqicywakcemw . $gguqkwucwcyqgwem . $ugkymqicywakcemw . $asgqasceaecqgouu;
+        goto mggeqkcksyaymcsa;
+        ousiuuwgwkiyikyq:
+        if ($yywykyucyekisogg > 979) {
+            goto asiqwuoswmigcaki;
+        }
+        goto ogsaaqsaogcqiouy;
+        ogsaaqsaogcqiouy:
+        $mggkikkcoygokucs = 621;
+        goto iwekmyyccgiyuecc;
+        gmwykkouysyaqwqm:
+        $immmocykksywgkqu = ($immmocykksywgkqu - 1) % 365;
+        goto ugqwuugsweqgmywk;
+        uaukmuiwskcemcsw:
+        $asgqasceaecqgouu = $immmocykksywgkqu + 1;
+        goto sockeswygwcskeuq;
+        gicyayswqyuoekcq:
+        $mggkikkcoygokucs += 100 * (int) (--$immmocykksywgkqu / 36524);
+        goto iikiiioqiyegyaak;
+        cogywoqcqummsyus:
+        if (!($immmocykksywgkqu > 365)) {
+            goto emmsycooskoqmgeg;
+        }
+        goto gmwykkouysyaqwqm;
+        qmkaeeomgkwggoyo:
+        qgeugwymkkiacwoc:
+        goto csammceowmqwaamq;
+        ogqmesokykywseys:
+        $immmocykksywgkqu = 365 * $yywykyucyekisogg + (int) ($yywykyucyekisogg / 33) * 8 + (int) (($yywykyucyekisogg % 33 + 3) / 4) + 78 + $ikiykmwgkuqwcmcs + ($sseomcuueskqeayq < 7 ? ($sseomcuueskqeayq - 1) * 31 : ($sseomcuueskqeayq - 7) * 30 + 186);
+        goto ykomgumacooyomsk;
+        iikiiioqiyegyaak:
+        $immmocykksywgkqu %= 36524;
+        goto uiosisocuwokwkie;
+        cwwmimggaaecmucw:
+        $yywykyucyekisogg -= 979;
+        goto awoaooyoeoyeeqee;
+        mkwkkmkgiqiamacc:
+        $ymccyoouuqkaacik = [0, 31, ($mggkikkcoygokucs % 4 == 0 and $mggkikkcoygokucs % 100 != 0 or $mggkikkcoygokucs % 400 == 0) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        goto uaqackioaiqwcocy;
+        ugqwuugsweqgmywk:
+        emmsycooskoqmgeg:
+        goto uaukmuiwskcemcsw;
+        gcckqucukawcasgk:
+        mqicocmqegwukkwg:
+        goto qmkaeeomgkwggoyo;
+        iwekmyyccgiyuecc:
+        goto ciykoyeioqgyaeqo;
+        goto ikqqskkqqwmwssoo;
+        ikqqskkqqwmwssoo:
+        asiqwuoswmigcaki:
+        goto aomysykcgikegiau;
+        kqqiegkuqagcqsya:
+        [$yywykyucyekisogg, $sseomcuueskqeayq, $ikiykmwgkuqwcmcs] = explode("\x5f", $this->ieacowssemeuewag($yywykyucyekisogg . "\x5f" . $sseomcuueskqeayq . "\137" . $ikiykmwgkuqwcmcs));
+        goto ousiuuwgwkiyikyq;
+        uiosisocuwokwkie:
+        if (!($immmocykksywgkqu >= 365)) {
+            goto mqicocmqegwukkwg;
+        }
+        goto cuumeogeomowqisc;
+        mqkmcysgoiaouiwm:
+        $immmocykksywgkqu %= 146097;
+        goto kosaqwikueyksqmw;
+        awoaooyoeoyeeqee:
+        ciykoyeioqgyaeqo:
+        goto ogqmesokykywseys;
+        cuumeogeomowqisc:
+        $immmocykksywgkqu++;
+        goto gcckqucukawcasgk;
+        aomysykcgikegiau:
+        $mggkikkcoygokucs = 1600;
+        goto cwwmimggaaecmucw;
+        ocaguquugeamqckq:
+        $immmocykksywgkqu %= 1461;
+        goto eekcoeikaeaaeyii;
+        csammceowmqwaamq:
+        $mggkikkcoygokucs += 4 * (int) ($immmocykksywgkqu / 1461);
+        goto ocaguquugeamqckq;
+        ykomgumacooyomsk:
+        $mggkikkcoygokucs += 400 * (int) ($immmocykksywgkqu / 146097);
+        goto mqkmcysgoiaouiwm;
+        mggeqkcksyaymcsa:
+    }
+    
+    public function date($saqmwwmqiwmkiwaa, $yiuogaeewyockeak = '', $mcmaiqckgiuqayau = "\x66\141")
+    {
+        goto ocywegekakimmwcq;
+        esaqcqqwuussiiwo:
+        $yqsoiieuuycqwmec = strlen($saqmwwmqiwmkiwaa);
+        goto ikqeeaysmqgcgawq;
+        ikqeeaysmqgcgawq:
+        $qcgkuqesqqymcuui = '';
+        goto mscgewkcqcoowweg;
+        emqswoaawgeyosmi:
+        $msqmoegqiqqmesci = $T_sec + intval($yiuogaeewyockeak === '' ? time() : $this->ieacowssemeuewag($yiuogaeewyockeak));
+        goto iwsmmkqaoksmocok;
+        wwukgaquuyoissgy:
+        if (!($ciyackuwsqkoqese < $yqsoiieuuycqwmec)) {
+            goto uegouoiuyoqkcscg;
+        }
+        goto gsygwgsiawgmqiyi;
+        okkmcocqokkskasy:
+        $seaogmggwosgceoo = $j_m < 7 ? ($j_m - 1) * 31 + $j_d - 1 : ($j_m - 7) * 30 + $j_d + 185;
+        goto qiiigwkqeoewsuwm;
+        qikaewekoecykeou:
+        goto cgyakcqgugqgkqiw;
+        goto eucqomyqykgoiuge;
+        egmayaiikwsskgmy:
+        return $mcmaiqckgiuqayau != "\145\156" ? $this->ieacowssemeuewag($qcgkuqesqqymcuui, "\146\141", "\x2e") : $qcgkuqesqqymcuui;
+        goto ucuoeymyqeokgsya;
+        mscgewkcqcoowweg:
+        $ciyackuwsqkoqese = 0;
+        goto suqcsgaosywaauuu;
+        qsgqwyqaqiowkmco:
+        if (!($uskwgmsuqowaosow == "\134")) {
+            goto eeyyskqsmquyquqw;
+        }
+        goto yqagomygmeoecwey;
+        ocywegekakimmwcq:
+        $T_sec = 0;
+        goto emqswoaawgeyosmi;
+        aiccyaswigkaycqk:
+        kqswcsysqawkcgye:
+        goto sqyokemumceysegy;
+        eucqomyqykgoiuge:
+        eeyyskqsmquyquqw:
+        goto usymasgsyqgsuocg;
+        qiiigwkqeoewsuwm:
+        $iogigmsgiwaecekq = $j_y % 33 % 4 - 1 == (int) ($j_y % 33 * 0.05) ? 1 : 0;
+        goto esaqcqqwuussiiwo;
+        yqagomygmeoecwey:
+        $qcgkuqesqqymcuui .= substr($saqmwwmqiwmkiwaa, ++$ciyackuwsqkoqese, 1);
+        goto qikaewekoecykeou;
+        oqousikwiiqagoyw:
+        cgyakcqgugqgkqiw:
+        goto zayqqeqgcwkekwws;
+        suqcsgaosywaauuu:
+        yuimwyoywaiiqacs:
+        goto wwukgaquuyoissgy;
+        aueaceeyommgkicu:
+        goto yuimwyoywaiiqacs;
+        goto mysueeoswqgccmui;
+        usymasgsyqgsuocg:
+        switch ($uskwgmsuqowaosow) {
+            case "\105":
+            case "\x52":
+            case "\x78":
+            case "\130":
+                $qcgkuqesqqymcuui .= "\x68\164\x74\x70\72\57\x2f\x6a\144\x66\56\163\x63\x72\56\151\x72";
+                goto ewscugeuicukkycc;
+            case "\102":
+            case "\x65":
+            case "\147":
+            case "\107":
+            case "\150":
+            case "\111":
+            case "\124":
+            case "\x75":
+            case "\x5a":
+                $qcgkuqesqqymcuui .= date($uskwgmsuqowaosow, $msqmoegqiqqmesci);
+                goto ewscugeuicukkycc;
+            case "\141":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[0] < 12 ? __("\x50\115", PR__PKG__JALALI) : __("\101\x4d", PR__PKG__JALALI);
+                goto ewscugeuicukkycc;
+            case "\101":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[0] < 12 ? __("\x42\x65\146\x6f\x72\145\40\x6e\x6f\x6f\x6e", PR__PKG__JALALI) : __("\x41\x66\x74\x65\x72\x20\156\x6f\157\156", PR__PKG__JALALI);
+                goto ewscugeuicukkycc;
+            case "\x62":
+                $qcgkuqesqqymcuui .= (int) ($j_m / 3.1) + 1;
+                goto ewscugeuicukkycc;
+            case "\143":
+                $qcgkuqesqqymcuui .= $j_y . "\x2f" . $j_m . "\x2f" . $j_d . "\x20\xd8\214" . $ocogsiouoiuuguym[0] . "\x3a" . $ocogsiouoiuuguym[1] . "\x3a" . $ocogsiouoiuuguym[6] . "\x20" . $ocogsiouoiuuguym[5];
+                goto ewscugeuicukkycc;
+            case "\103":
+                $qcgkuqesqqymcuui .= (int) (($j_y + 99) / 100);
+                goto ewscugeuicukkycc;
+            case "\144":
+                $qcgkuqesqqymcuui .= $j_d < 10 ? "\x30" . $j_d : $j_d;
+                goto ewscugeuicukkycc;
+            case "\x44":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\153\150" => $ocogsiouoiuuguym[7]], "\x20");
+                goto ewscugeuicukkycc;
+            case "\x66":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\146\146" => $j_m], "\x20");
+                goto ewscugeuicukkycc;
+            case "\115":
+            case "\x46":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\155\155" => $j_m], "\40");
+                goto ewscugeuicukkycc;
+            case "\110":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[0];
+                goto ewscugeuicukkycc;
+            case "\151":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[1];
+                goto ewscugeuicukkycc;
+            case "\152":
+                $qcgkuqesqqymcuui .= $j_d;
+                goto ewscugeuicukkycc;
+            case "\112":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\x72\162" => $j_d], "\x20");
+                goto ewscugeuicukkycc;
+            case "\153":
+                $qcgkuqesqqymcuui .= $this->ieacowssemeuewag(100 - (int) ($seaogmggwosgceoo / ($iogigmsgiwaecekq + 365) * 1000) / 10, $mcmaiqckgiuqayau);
+                goto ewscugeuicukkycc;
+            case "\113":
+                $qcgkuqesqqymcuui .= $this->ieacowssemeuewag((int) ($seaogmggwosgceoo / ($iogigmsgiwaecekq + 365) * 1000) / 10, $mcmaiqckgiuqayau);
+                goto ewscugeuicukkycc;
+            case "\154":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\162\150" => $ocogsiouoiuuguym[7]], "\40");
+                goto ewscugeuicukkycc;
+            case "\114":
+                $qcgkuqesqqymcuui .= $iogigmsgiwaecekq;
+                goto ewscugeuicukkycc;
+            case "\155":
+                $qcgkuqesqqymcuui .= $j_m > 9 ? $j_m : "\60" . $j_m;
+                goto ewscugeuicukkycc;
+            
+            case "\x6e":
+                $qcgkuqesqqymcuui .= $j_m;
+                goto ewscugeuicukkycc;
+            case "\x4e":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[7] + 1;
+                goto ewscugeuicukkycc;
+            case "\157":
+                goto wusciwkkckmqigms;
+                ukkcmocamwgiqayu:
+                $qcgkuqesqqymcuui .= ($wwsqocgmmwgqoeig > $seaogmggwosgceoo + 3 and $seaogmggwosgceoo < 3) ? $j_y - 1 : ((3 - $icsmemcomqeocqcg > $wwsqocgmmwgqoeig and $icsmemcomqeocqcg < 3) ? $j_y + 1 : $j_y);
+                goto mwysseaekcsiesmm;
+                iiiccouaaqsyikae:
+                $icsmemcomqeocqcg = 364 + $iogigmsgiwaecekq - $seaogmggwosgceoo;
+                goto ukkcmocamwgiqayu;
+                wusciwkkckmqigms:
+                $wwsqocgmmwgqoeig = $ocogsiouoiuuguym[7] == 6 ? 0 : $ocogsiouoiuuguym[7] + 1;
+                goto iiiccouaaqsyikae;
+                mwysseaekcsiesmm:
+                goto ewscugeuicukkycc;
+                goto amgsueumgaguceaa;
+                amgsueumgaguceaa:
+            case "\x4f":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[4];
+                goto ewscugeuicukkycc;
+            case "\x70":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\x6d\142" => $j_m], "\40");
+                goto ewscugeuicukkycc;
+            case "\x50":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[5];
+                goto ewscugeuicukkycc;
+            case "\161":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\163\x68" => $j_y], "\x20");
+                goto ewscugeuicukkycc;
+            case "\121":
+                $qcgkuqesqqymcuui .= $iogigmsgiwaecekq + 364 - $seaogmggwosgceoo;
+                goto ewscugeuicukkycc;
+            case "\162":
+                goto gygwewcqsmwqismo;
+                gygwewcqsmwqismo:
+                $uusmaiomayssaecw = $this->yqeyqmywaiwkkcao(["\162\150" => $ocogsiouoiuuguym[7], "\155\155" => $j_m]);
+                goto uougwgeyiokewkkm;
+                gommacygsykyussk:
+                goto ewscugeuicukkycc;
+                goto ukqocwewouckikso;
+                uougwgeyiokewkkm:
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[0] . "\x3a" . $ocogsiouoiuuguym[1] . "\72" . $ocogsiouoiuuguym[6] . "\x20" . $ocogsiouoiuuguym[4] . "\x20" . $uusmaiomayssaecw["\x72\150"] . "\330\214\x20" . $j_d . "\x20" . $uusmaiomayssaecw["\x6d\155"] . "\x20" . $j_y;
+                goto gommacygsykyussk;
+                ukqocwewouckikso:
+            case "\163":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[6];
+                goto ewscugeuicukkycc;
+            case "\x53":
+                $qcgkuqesqqymcuui .= "\330\xa7\xd9\205";
+                goto ewscugeuicukkycc;
+            case "\x74":
+                $qcgkuqesqqymcuui .= $j_m != 12 ? 31 - (int) ($j_m / 6.5) : $iogigmsgiwaecekq + 29;
+                goto ewscugeuicukkycc;
+            case "\x55":
+                $qcgkuqesqqymcuui .= $msqmoegqiqqmesci;
+                goto ewscugeuicukkycc;
+            case "\166":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\x73\x73" => $j_y % 100], "\40");
+                goto ewscugeuicukkycc;
+            case "\x56":
+                $qcgkuqesqqymcuui .= $this->yqeyqmywaiwkkcao(["\163\x73" => $j_y], "\40");
+                goto ewscugeuicukkycc;
+            case "\x77":
+                $qcgkuqesqqymcuui .= $ocogsiouoiuuguym[7] == 6 ? 0 : $ocogsiouoiuuguym[7] + 1;
+                goto ewscugeuicukkycc;
+            case "\127":
+                goto uqokiksoqcwwqgio;
+                ikuuiauwouuqawuw:
+                $qcgkuqesqqymcuui .= ($iogigmsgiwaecekq + 363 - $seaogmggwosgceoo < $ecsiqegmcewekssu and $ecsiqegmcewekssu < 3) ? "\x30\x31" : ($mqwsmsykyouoomgm < 10 ? "\x30" . $mqwsmsykyouoomgm : $mqwsmsykyouoomgm);
+                goto yoqakewookqoqacm;
+                uqokiksoqcwwqgio:
+                $aaeqayuykcqoqiuu = ($ocogsiouoiuuguym[7] == 6 ? 0 : $ocogsiouoiuuguym[7] + 1) - $seaogmggwosgceoo % 7;
+                goto qukocuwgakemmyga;
+                yoqakewookqoqacm:
+                goto ewscugeuicukkycc;
+                goto gswcoeiisamakwii;
+                iesekaeqeomeuaui:
+                uimeeckqksqeekqq:
+                goto wsesqmcqoiyyqkqi;
+                kwiggogcgciwuwqk:
+                $ecsiqegmcewekssu = 0;
+                goto uckewycoogsogwiy;
+                yiowgigkkwsoqcci:
+                ucqmumuygcywwqma:
+                goto ieqesiiageaauiuw;
+                mogkoocsoeuyoqqa:
+                goto uykousayyomcaeaa;
+                goto wkwamkgkwykeqkec;
+                yykqaowwsqgqysmq:
+                if (!($ecsiqegmcewekssu == 7)) {
+                    goto kocqqoyymosmuksu;
+                }
+                goto kwiggogcgciwuwqk;
+                wkwamkgkwykeqkec:
+                iuuuususuuuaieem:
+                goto oimkeqocuguqqsqk;
+                oeocukauoyosicso:
+                uykousayyomcaeaa:
+                goto suqceasgacskcmkc;
+                sioekkmekwygemyc:
+                $aaeqayuykcqoqiuu += 7;
+                goto yiowgigkkwsoqcci;
+                suqceasgacskcmkc:
+                $ecsiqegmcewekssu = $aaeqayuykcqoqiuu + $iogigmsgiwaecekq;
+                goto yykqaowwsqgqysmq;
+                mscyggqcesgqqksu:
+                if ($mqwsmsykyouoomgm < 1) {
+                    goto iuuuususuuuaieem;
+                }
+                goto oyeyomcgkmgymogq;
+                uckewycoogsogwiy:
+                kocqqoyymosmuksu:
+                goto ikuuiauwouuqawuw;
+                oimkeqocuguqqsqk:
+                $mqwsmsykyouoomgm = ($aaeqayuykcqoqiuu == 4 or $aaeqayuykcqoqiuu == ($j_y % 33 % 4 - 2 == (int) ($j_y % 33 * 0.05) ? 5 : 4)) ? 53 : 52;
+                goto oeocukauoyosicso;
+                wsesqmcqoiyyqkqi:
+                $mqwsmsykyouoomgm++;
+                goto mogkoocsoeuyoqqa;
+                gamqcwuwkikwqoay:
+                if ($aaeqayuykcqoqiuu < 4) {
+                    goto uimeeckqksqeekqq;
+                }
+                goto mscyggqcesgqqksu;
+                ieqesiiageaauiuw:
+                $mqwsmsykyouoomgm = (int) (($seaogmggwosgceoo + $aaeqayuykcqoqiuu) / 7);
+                goto gamqcwuwkikwqoay;
+                qukocuwgakemmyga:
+                if (!($aaeqayuykcqoqiuu < 0)) {
+                    goto ucqmumuygcywwqma;
+                }
+                goto sioekkmekwygemyc;
+                oyeyomcgkmgymogq:
+                goto uykousayyomcaeaa;
+                goto iesekaeqeomeuaui;
+                gswcoeiisamakwii:
+            case "\x79":
+                $qcgkuqesqqymcuui .= substr($j_y, 2, 2);
+                goto ewscugeuicukkycc;
+            case "\x59":
+                $qcgkuqesqqymcuui .= $j_y;
+                goto ewscugeuicukkycc;
+            case "\x7a":
+                $qcgkuqesqqymcuui .= $seaogmggwosgceoo;
+                goto ewscugeuicukkycc;
+            default:
+                $qcgkuqesqqymcuui .= $uskwgmsuqowaosow;
+        }
+        goto aiccyaswigkaycqk;
+        sqyokemumceysegy:
+        ewscugeuicukkycc:
+        goto oqousikwiiqagoyw;
+        gsygwgsiawgmqiyi:
+        $uskwgmsuqowaosow = substr($saqmwwmqiwmkiwaa, $ciyackuwsqkoqese, 1);
+        goto qsgqwyqaqiowkmco;
+        iwsmmkqaoksmocok:
+        
+        $ocogsiouoiuuguym = explode("\137", date("\110\137\151\137\152\x5f\x6e\137\x4f\x5f\x50\137\x73\x5f\x77\x5f\x59", $msqmoegqiqqmesci));
+        goto esikeyqyuikmaiek;
+        mysueeoswqgccmui:
+        uegouoiuyoqkcscg:
+        goto egmayaiikwsskgmy;
+        zayqqeqgcwkekwws:
+        $ciyackuwsqkoqese++;
+        goto aueaceeyommgkicu;
+        esikeyqyuikmaiek:
+        [$j_y, $j_m, $j_d] = $this->uuwciykyuogimcou($ocogsiouoiuuguym[8], $ocogsiouoiuuguym[3], $ocogsiouoiuuguym[2]);
+        goto okkmcocqokkskasy;
+        ucuoeymyqeokgsya:
+    }
+    
+    public function ieacowssemeuewag($eusockqasqqmoess, $aamkqmkgsaqmcuao = "\x65\156", $eqmcogmcemgigckm = "\331\253")
+    {
+        return $this->kkkikouyuqigocai()->ieacowssemeuewag($eusockqasqqmoess, $aamkqmkgsaqmcuao, $eqmcogmcemgigckm);
+    }
+    
+    public function squyiyimquqicqke($yiuogaeewyockeak = '', $umusyyqoeegoyiqs = "\x41\163\151\141\x2f\x54\x65\x68\162\141\156", $seieuccuyuucuigq = "\x65\x6e") : array
+    {
+        goto yuuyikiacmmueosu;
+        yuuyikiacmmueosu:
+        $msqmoegqiqqmesci = $yiuogaeewyockeak === '' ? time() : $this->ieacowssemeuewag($yiuogaeewyockeak);
+        goto sguskaeaaqcagqgc;
+        sguskaeaaqcagqgc:
+        $ocogsiouoiuuguym = explode("\x5f", $this->date("\x46\x5f\x47\x5f\151\x5f\152\137\x6c\x5f\x6e\137\163\137\x77\137\131\x5f\x7a", $msqmoegqiqqmesci, $seieuccuyuucuigq));
+        goto agkmiayuawacakau;
+        agkmiayuawacakau:
+        return ["\x73\x65\143\157\156\x64\163" => $this->ieacowssemeuewag((int) $this->ieacowssemeuewag($ocogsiouoiuuguym[6]), $seieuccuyuucuigq), "\155\151\156\x75\164\x65\163" => $this->ieacowssemeuewag((int) $this->ieacowssemeuewag($ocogsiouoiuuguym[2]), $seieuccuyuucuigq), "\150\157\x75\x72\163" => $ocogsiouoiuuguym[1], "\155\x64\x61\x79" => $ocogsiouoiuuguym[3], "\x77\144\x61\x79" => $ocogsiouoiuuguym[7], "\x6d\x6f\x6e" => $ocogsiouoiuuguym[5], "\171\145\x61\x72" => $ocogsiouoiuuguym[8], "\171\144\x61\171" => $ocogsiouoiuuguym[9], "\167\x65\x65\153\x64\x61\171" => $ocogsiouoiuuguym[4], "\155\x6f\156\164\x68" => $ocogsiouoiuuguym[0], 0 => $this->ieacowssemeuewag($msqmoegqiqqmesci, $seieuccuyuucuigq)];
+        goto syuaummumssgwwee;
+        syuaummumssgwwee:
+    }
+    
+    public function ogmieugosioacswq($ackqauiusooswkmw = '', $gcisockiummsmcag = '', $piuesceqiguuskme = '', $sseomcuueskqeayq = '', $ikiykmwgkuqwcmcs = '', $yywykyucyekisogg = '', $umusyyqoeegoyiqs = "\101\x73\151\x61\x2f\x54\x65\x68\162\x61\156")
+    {
+        goto sqmoqymckwsogsqg;
+        skuqigsokaguscas:
+        [$mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu] = $this->iiemucyoiawywqmw($ocogsiouoiuuguym[0], $sseomcuueskqeayq, $ocogsiouoiuuguym[1]);
+        goto quyogmwugsyoaaiu;
+        sgiwoiscywusgmmm:
+        egsycocugqyyswsi:
+        goto skuqigsokaguscas;
+        wgiygcmqaokywuqa:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw);
+        goto iauwuugggmegwisk;
+        qkuiwoqksgayqqmg:
+        if ($sseomcuueskqeayq === '') {
+            goto aoquoewagkseayug;
+        }
+        goto easqmyamcmeesgya;
+        eckcqesiokgwkkiw:
+        [$mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu] = $this->iiemucyoiawywqmw($ocogsiouoiuuguym[0], $sseomcuueskqeayq, $ikiykmwgkuqwcmcs);
+        goto ecouwqosmoyyqmkw;
+        goqmywuiicciasyk:
+        if ($gcisockiummsmcag === '') {
+            goto mkomygccqkmkumsi;
+        }
+        goto siecswkggyikqkga;
+        uycesqqkoeamocgm:
+        date_default_timezone_set($umusyyqoeegoyiqs);
+        goto ceiwqkyquikcemmo;
+        yssqmyoaokkksukc:
+        cgmgqucewwssmicq:
+        goto ooqksueucyagyuoe;
+        siecswkggyikqkga:
+        if ($piuesceqiguuskme === '') {
+            goto ciucewqgyoiouesq;
+        }
+        goto qkuiwoqksgayqqmg;
+        yuqgwwmqwqiuwmaw:
+        if ($ikiykmwgkuqwcmcs === '') {
+            goto egsycocugqyyswsi;
+        }
+        goto quaqmuusokiyqgqe;
+        wmumywgyyeagqoeq:
+        goto osuscoaaomwcqkew;
+        goto smcguieygyqcaqgs;
+        mmgmqogugasaqkgg:
+        qiaimmucomukkeka:
+        goto wmumywgyyeagqoeq;
+        smcguieygyqcaqgs:
+        aoquoewagkseayug:
+        goto mgcuiguaomoqwwwm;
+        wkgskiuiukiuyque:
+        if ($ackqauiusooswkmw === '') {
+            goto oyiuemaaykgkqqam;
+        }
+        goto oyiuyywyeoskckuw;
+        yuoeumyiuqkuouey:
+        goto cgmgqucewwssmicq;
+        goto eyiwqgqcsqakwqss;
+        ooqksueucyagyuoe:
+        goto ussceseaimqywuiy;
+        goto osmmoyqkqoucsgow;
+        sckioayasmkcoeoo:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw, $gcisockiummsmcag);
+        goto yssqmyoaokkksukc;
+        quaqmuusokiyqgqe:
+        if ($yywykyucyekisogg === '') {
+            goto qkcsykuocwuyaice;
+        }
+        goto smiemmcqqukyguuu;
+        yamyagayiooyeekg:
+        goto uoeasoimegouymka;
+        goto yoagcooekomeokwg;
+        oyiuyywyeoskckuw:
+        [$ackqauiusooswkmw, $gcisockiummsmcag, $piuesceqiguuskme, $sseomcuueskqeayq, $ikiykmwgkuqwcmcs, $yywykyucyekisogg] = explode("\x5f", $this->ieacowssemeuewag($ackqauiusooswkmw . "\137" . $gcisockiummsmcag . "\x5f" . $piuesceqiguuskme . "\x5f" . $sseomcuueskqeayq . "\137" . $ikiykmwgkuqwcmcs . "\x5f" . $yywykyucyekisogg));
+        goto goqmywuiicciasyk;
+        sqmoqymckwsogsqg:
+        if (!($umusyyqoeegoyiqs != "\x6c\x6f\143\141\154")) {
+            goto oocuemosmeeekgas;
+        }
+        goto uycesqqkoeamocgm;
+        easqmyamcmeesgya:
+        $ocogsiouoiuuguym = explode("\137", $this->date("\131\x5f\152", '', "\145\156"));
+        goto yuqgwwmqwqiuwmaw;
+        mqiiqkuaoekeuswo:
+        uoeasoimegouymka:
+        goto qmoocweoekqueuyy;
+        eyiwqgqcsqakwqss:
+        ciucewqgyoiouesq:
+        goto sckioayasmkcoeoo;
+        ukomuiwukymcoaso:
+        $cqgoimumaewouews = 0;
+        goto wkgskiuiukiuyque;
+        aukucaieceiwesmm:
+        goto gqmewagyagamokok;
+        goto kqyoakickmseyyeq;
+        micceocwuwkyusic:
+        $cqgoimumaewouews = time();
+        goto iwueukqcywkiyqge;
+        yoagcooekomeokwg:
+        qkcsykuocwuyaice:
+        goto eckcqesiokgwkkiw;
+        osmmoyqkqoucsgow:
+        mkomygccqkmkumsi:
+        goto wgiygcmqaokywuqa;
+        ecouwqosmoyyqmkw:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw, $gcisockiummsmcag, $piuesceqiguuskme, $gguqkwucwcyqgwem, $asgqasceaecqgouu);
+        goto mqiiqkuaoekeuswo;
+        qmoocweoekqueuyy:
+        goto qiaimmucomukkeka;
+        goto sgiwoiscywusgmmm;
+        smiemmcqqukyguuu:
+        [$mggkikkcoygokucs, $gguqkwucwcyqgwem, $asgqasceaecqgouu] = $this->iiemucyoiawywqmw($yywykyucyekisogg, $sseomcuueskqeayq, $ikiykmwgkuqwcmcs);
+        goto iksewmsaugayqaqq;
+        eoyiumycaigawmmc:
+        osuscoaaomwcqkew:
+        goto yuoeumyiuqkuouey;
+        iauwuugggmegwisk:
+        ussceseaimqywuiy:
+        goto aukucaieceiwesmm;
+        kqyoakickmseyyeq:
+        oyiuemaaykgkqqam:
+        goto micceocwuwkyusic;
+        mgcuiguaomoqwwwm:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw, $gcisockiummsmcag, $piuesceqiguuskme);
+        goto eoyiumycaigawmmc;
+        ykwasaaoeeiuomim:
+        return $cqgoimumaewouews;
+        goto acggikioyeueeowg;
+        iwueukqcywkiyqge:
+        gqmewagyagamokok:
+        goto ykwasaaoeeiuomim;
+        iksewmsaugayqaqq:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw, $gcisockiummsmcag, $piuesceqiguuskme, $gguqkwucwcyqgwem, $asgqasceaecqgouu, $mggkikkcoygokucs);
+        goto yamyagayiooyeekg;
+        quyogmwugsyoaaiu:
+        $cqgoimumaewouews = mktime($ackqauiusooswkmw, $gcisockiummsmcag, $piuesceqiguuskme, $gguqkwucwcyqgwem);
+        goto mmgmqogugasaqkgg;
+        ceiwqkyquikcemmo:
+        oocuemosmeeekgas:
+        goto ukomuiwukymcoaso;
+        acggikioyeueeowg:
+    }
+}

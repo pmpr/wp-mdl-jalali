@@ -1,2 +1,26 @@
 <?php
- namespace Pmpr\Package\Jalali; use Pmpr\Common\Foundation\Container\Container as BaseClass; use Pmpr\Common\Foundation\Manipulate\Post\ManipulatePost; class Container extends BaseClass { public function __construct() { $this->settingObj = Setting::getInstance(); parent::__construct(); } public function canAddVirastar() : bool { return ManipulatePost::isEditorPage($this->getSettingByKey(Setting::VIRASTAR_POST_TYPE_TARGETS, [])); } }
+/*   _______________________________________
+    |  Obfuscated by PMPR - Php Obfuscator  |
+    |             613b4ccec9f71             |
+    |_______________________________________|
+*/
+
+namespace Pmpr\Package\Jalali;
+
+use Pmpr\Common\Foundation\Container\Container as BaseClass;
+use Pmpr\Common\Foundation\Manipulate\Post\ManipulatePost;
+
+class Container extends BaseClass
+{
+    
+    public function __construct()
+    {
+        $this->settingObj = Setting::symcgieuakksimmu();
+        parent::__construct();
+    }
+    
+    public function moeogyisgeuwoeea() : bool
+    {
+        return ManipulatePost::uqwgsuysegkweago($this->weysguygiseoukqw(Setting::VIRASTAR_POST_TYPE_TARGETS, []));
+    }
+}

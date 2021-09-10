@@ -1,2 +1,138 @@
 <?php
- namespace Pmpr\Package\Jalali; use Pmpr\Common\Foundation\Decorator\DecoratorI18N; use Pmpr\Common\Foundation\Manipulate\Type\ManipulateArray; class Translator extends Container { const SEPARATOR = "\56"; const PERSIAN_NUMBERS = ["\xd9\xaa", "\xdb\260", "\xdb\xb1", "\xdb\xb2", "\xdb\263", "\333\xb4", "\xdb\xb5", "\xdb\xb6", "\333\267", "\333\270", "\333\xb9", self::SEPARATOR => self::SEPARATOR]; const ENGLISH_NUMBERS = ["\x25", "\x30", "\x31", "\x32", "\x33", "\64", "\65", "\x36", "\x37", "\x38", "\x39", self::SEPARATOR => self::SEPARATOR]; public function addFilters() { $this->addFilter($this->generateHook("\164\x72\141\x6e\163\137\167\157\x72\x64"), [$this, "\x74\162\x61\x6e\163\154\141\164\145"], 10, 2)->addFilter($this->generateHook("\x74\162\141\x6e\163\137\156\165\155\142\145\x72"), [$this, "\x74\162\x61\156\163\154\141\164\145\x4e\165\x6d\142\x65\x72"], 10, 3); parent::addFilters(); } public function translate($WzKA1, $FFOOb) { goto xalzD; xalzD: if ($FFOOb) { goto e4_Hr; } goto dDfS9; LeMlL: Fe5wR: goto poObm; poObm: return $WzKA1; goto hQRH_; nMzdR: switch ($FFOOb) { case "\x66\141": case "\146\141\x5f\111\122": goto OVlLc; yOTq0: goto Fe5wR; goto XeJ3m; Q90R6: $WzKA1 = $this->english2persian($WzKA1); goto yOTq0; OVlLc: $WzKA1 = $this->arabic2persian($WzKA1); goto Q90R6; XeJ3m: case "\145\156": case "\145\156\x5f\125\x53": $WzKA1 = $this->numbers2english($WzKA1); goto Fe5wR; } goto tpltS; FiYEz: e4_Hr: goto nMzdR; dDfS9: $FFOOb = DecoratorI18N::getLocale(); goto FiYEz; tpltS: ZJcSw: goto LeMlL; hQRH_: } public function arabic2persian($WzKA1) { return str_replace(["\xd9\x8a", "\331\x83", "\330\251", "\331\xa4", "\331\245", "\331\xa6"], ["\333\x8c", "\xda\xa9", "\331\x87", "\333\264", "\xdb\265", "\333\xb6"], $WzKA1); } public function english2persian($z8EDG) { return preg_replace_callback("\57\x28\77\x3a\46\x23\x5c\x64\x7b\62\x2c\64\175\73\51\174\50\134\144\53\x5b\134\x2e\134\144\135\52\x29\x7c\50\77\x3a\x5b\x61\x2d\x7a\x5d\x28\77\x3a\x5b\134\x78\60\60\x2d\x5c\x78\63\102\134\170\63\104\x2d\134\x78\67\106\x5d\x7c\x3c\134\163\x2a\133\136\76\135\53\x3e\51\x2a\x29\x7c\74\134\x73\52\133\x5e\76\135\53\x3e\57\151", [$this, "\156\165\x6d\x62\145\162\163\x32\x70\145\162\163\x69\x61\x6e"], $z8EDG); } private function numbers2persian($HWf7M) { goto IWVw2; SF9JH: AfscK: goto xWp7A; xWp7A: $Pfuek = str_replace(self::ENGLISH_NUMBERS, self::PERSIAN_NUMBERS, $Pfuek); goto Nu_Oi; tyFcJ: return $Pfuek; goto R7J2G; Nu_Oi: nlVRD: goto tyFcJ; DBAAb: goto nlVRD; goto SF9JH; PafMc: if ($Pfuek !== false) { goto AfscK; } goto xt61R; xt61R: $Pfuek = ManipulateArray::get($HWf7M, 0); goto DBAAb; IWVw2: $Pfuek = ManipulateArray::get($HWf7M, 1, false); goto PafMc; R7J2G: } public function numbers2english($Mn2B1) { return str_replace(self::PERSIAN_NUMBERS, self::ENGLISH_NUMBERS, $Mn2B1); } public function translateNumber($z8EDG, $FFOOb = "\x66\x61", $iQBPC = "\331\253") { goto jgp51; W7OmR: $JDBfz = self::PERSIAN_NUMBERS; goto FuQhn; jgp51: $gJC7j = self::ENGLISH_NUMBERS; goto W7OmR; BV0XO: $sk2sr = in_array($FFOOb, ["\x66\x61", "\146\x61\x5f\111\x52"]); goto BDPps; BDPps: return $sk2sr ? str_replace($gJC7j, $JDBfz, $z8EDG) : str_replace($JDBfz, $gJC7j, $z8EDG); goto mPdBu; FuQhn: $JDBfz[self::SEPARATOR] = $iQBPC; goto BV0XO; mPdBu: } }
+/*   _______________________________________
+    |  Obfuscated by PMPR - Php Obfuscator  |
+    |             613b4ccec9f71             |
+    |_______________________________________|
+*/
+
+namespace Pmpr\Package\Jalali;
+
+use Pmpr\Common\Foundation\Decorator\DecoratorI18N;
+use Pmpr\Common\Foundation\Manipulate\Type\ManipulateArray;
+
+class Translator extends Container
+{
+    const SEPARATOR = "\56";
+    const PERSIAN_NUMBERS = ["\331\252", "\333\260", "\xdb\xb1", "\333\262", "\333\xb3", "\333\264", "\xdb\265", "\333\266", "\xdb\267", "\333\xb8", "\333\xb9", self::SEPARATOR => self::SEPARATOR];
+    const ENGLISH_NUMBERS = ["\x25", "\x30", "\61", "\x32", "\63", "\x34", "\x35", "\x36", "\67", "\x38", "\x39", self::SEPARATOR => self::SEPARATOR];
+    public function kgquecmsgcouyaya()
+    {
+        $this->cecaguuoecmccuse($this->ygyygikyocoymgaw("\x74\x72\x61\156\x73\x5f\x77\157\162\x64"), [$this, "\x74\162\x61\156\x73\x6c\141\x74\x65"], 10, 2)->cecaguuoecmccuse($this->ygyygikyocoymgaw("\164\162\141\x6e\163\137\x6e\165\155\142\x65\x72"), [$this, "\x69\x65\141\x63\x6f\x77\163\x73\x65\x6d\x65\x75\x65\167\141\147"], 10, 3);
+        parent::kgquecmsgcouyaya();
+    }
+    
+    public function translate($cmwygeyygwqaemaq, $aamkqmkgsaqmcuao)
+    {
+        goto iiiwsgameuomumgw;
+        egwgyekaiqomyeaa:
+        kwocaqggwcksesce:
+        goto kssuqmsgmaaeqigw;
+        okycquokqoamsquy:
+        switch ($aamkqmkgsaqmcuao) {
+            case "\146\141":
+            case "\x66\141\137\111\x52":
+                goto qaewauyekqucciyc;
+                qaewauyekqucciyc:
+                $cmwygeyygwqaemaq = $this->eesmuqmoykoqawug($cmwygeyygwqaemaq);
+                goto bgakaasgwwygosyi;
+                bgakaasgwwygosyi:
+                $cmwygeyygwqaemaq = $this->nkyiiqgsgaeeecso($cmwygeyygwqaemaq);
+                goto aucwccaiqwsmyuaq;
+                aucwccaiqwsmyuaq:
+                goto kwocaqggwcksesce;
+                goto agyooskogigyayws;
+                agyooskogigyayws:
+            case "\145\156":
+            case "\145\x6e\x5f\x55\123":
+                $cmwygeyygwqaemaq = $this->mgmuuqwaamswcoug($cmwygeyygwqaemaq);
+                goto kwocaqggwcksesce;
+        }
+        goto cgwokqwakqcmiieo;
+        scockmiqikwwkqse:
+        kuuawiosmkgqsscy:
+        goto okycquokqoamsquy;
+        iiiwsgameuomumgw:
+        if ($aamkqmkgsaqmcuao) {
+            goto kuuawiosmkgqsscy;
+        }
+        goto mcukocaaoyuugoeu;
+        kssuqmsgmaaeqigw:
+        return $cmwygeyygwqaemaq;
+        goto uwusswwekqcsisus;
+        mcukocaaoyuugoeu:
+        $aamkqmkgsaqmcuao = DecoratorI18N::iyouigcsiacgwksc();
+        goto scockmiqikwwkqse;
+        cgwokqwakqcmiieo:
+        momuweiasiwskekw:
+        goto egwgyekaiqomyeaa;
+        uwusswwekqcsisus:
+    }
+    
+    public function eesmuqmoykoqawug($cmwygeyygwqaemaq)
+    {
+        return str_replace(["\xd9\212", "\xd9\x83", "\330\xa9", "\xd9\244", "\331\xa5", "\331\xa6"], ["\xdb\214", "\332\251", "\331\207", "\xdb\xb4", "\xdb\xb5", "\333\266"], $cmwygeyygwqaemaq);
+    }
+    
+    public function nkyiiqgsgaeeecso($sociqikgoyemqaac)
+    {
+        return preg_replace_callback("\57\50\x3f\x3a\46\43\x5c\144\x7b\62\54\64\175\x3b\x29\x7c\50\134\144\x2b\133\134\56\134\x64\x5d\x2a\51\174\x28\x3f\x3a\x5b\x61\55\x7a\x5d\50\77\x3a\x5b\134\x78\60\60\x2d\x5c\x78\x33\x42\134\170\63\x44\x2d\x5c\170\67\x46\135\x7c\x3c\134\163\x2a\133\x5e\76\135\53\76\x29\52\x29\174\x3c\134\163\52\x5b\136\x3e\135\53\x3e\57\x69", [$this, "\163\x73\161\157\161\171\x73\165\x75\x61\x77\145\157\163\167\x61"], $sociqikgoyemqaac);
+    }
+    
+    private function ssqoqysuuaweoswa($meyiiwcswqmuggyg)
+    {
+        goto kqyeukywmgismyaq;
+        ugikgkwuwmgymgus:
+        $eusockqasqqmoess = str_replace(self::ENGLISH_NUMBERS, self::PERSIAN_NUMBERS, $eusockqasqqmoess);
+        goto gsgyayuaekgyoumc;
+        wykuosegisygosiq:
+        mciumqyyossyiuyk:
+        goto ugikgkwuwmgymgus;
+        omemqagskckoeoog:
+        return $eusockqasqqmoess;
+        goto aeuosggumiiwoesm;
+        omgcsmsikaggaooc:
+        goto acaeigkmigikeuyu;
+        goto wykuosegisygosiq;
+        mukwsuuuqcgesmwc:
+        if ($eusockqasqqmoess !== false) {
+            goto mciumqyyossyiuyk;
+        }
+        goto cqeoguiqiymkyweo;
+        gsgyayuaekgyoumc:
+        acaeigkmigikeuyu:
+        goto omemqagskckoeoog;
+        cqeoguiqiymkyweo:
+        $eusockqasqqmoess = ManipulateArray::get($meyiiwcswqmuggyg, 0);
+        goto omgcsmsikaggaooc;
+        kqyeukywmgismyaq:
+        $eusockqasqqmoess = ManipulateArray::get($meyiiwcswqmuggyg, 1, false);
+        goto mukwsuuuqcgesmwc;
+        aeuosggumiiwoesm:
+    }
+    
+    public function mgmuuqwaamswcoug($ygmmaywsqqycaaok)
+    {
+        return str_replace(self::PERSIAN_NUMBERS, self::ENGLISH_NUMBERS, $ygmmaywsqqycaaok);
+    }
+    
+    public function ieacowssemeuewag($sociqikgoyemqaac, $aamkqmkgsaqmcuao = "\x66\x61", $eqmcogmcemgigckm = "\331\xab")
+    {
+        goto wyqmeyoaggwuioak;
+        wyqmeyoaggwuioak:
+        $mqwsmsykyouoomgm = self::ENGLISH_NUMBERS;
+        goto uyksacasqywyessc;
+        uyksacasqywyessc:
+        $uusmaiomayssaecw = self::PERSIAN_NUMBERS;
+        goto sqmqwqeoygcmqcim;
+        sqmqwqeoygcmqcim:
+        $uusmaiomayssaecw[self::SEPARATOR] = $eqmcogmcemgigckm;
+        goto syykqmkiyoekqsek;
+        aiqekkyauwswayyq:
+        return $ksskkagoieiyuuwe ? str_replace($mqwsmsykyouoomgm, $uusmaiomayssaecw, $sociqikgoyemqaac) : str_replace($uusmaiomayssaecw, $mqwsmsykyouoomgm, $sociqikgoyemqaac);
+        goto mmcikqikqecaeswu;
+        syykqmkiyoekqsek:
+        $ksskkagoieiyuuwe = in_array($aamkqmkgsaqmcuao, ["\x66\141", "\x66\141\137\111\122"]);
+        goto aiqekkyauwswayyq;
+        mmcikqikqecaeswu:
+    }
+}
