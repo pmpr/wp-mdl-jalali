@@ -6521,6 +6521,12 @@ external_jQuery_default()(document).ready(function () {
                         $value = $dateInput.val();
                     }
 
+                    if ($dateInput.is('.auto-init')
+                        && PMPRUtil.isEmpty($value)) {
+
+                        $value = getDate();
+                    }
+
                     if (!PMPRUtil.isEmpty($value)
                         && !PMPRUtil.isDate($value)) {
 
@@ -6530,18 +6536,20 @@ external_jQuery_default()(document).ready(function () {
                         });
 
                         let $converter = new persianDate($value)
-                            .toLocale('en')
-                            .toCalendar('gregorian');
+                            .toLocale('en').toCalendar('gregorian');
 
                         $value = $converter.format('YYYY-MM-DD');
                     }
-                    let hasValue = !PMPRUtil.isEmpty($value), $attrs = {
-                        id: `jalali_${id}`,
-                        dir: 'ltr',
-                        type: 'text',
-                        class: `direction-ltr ${$dateInput.attr('class')}`,
-                        autocomplete: 'off'
-                    };
+
+                    let hasValue = !PMPRUtil.isEmpty($value),
+                        $attrs = {
+                            id: `jalali_${id}`,
+                            dir: 'ltr',
+                            type: 'text',
+                            class: `direction-ltr ${$dateInput.attr('class')}`,
+                            autocomplete: 'off'
+                        };
+
                     $dateInput.val($value);
                     $dateInput.trigger('change');
                     if (hasValue) {
@@ -6576,6 +6584,14 @@ external_jQuery_default()(document).ready(function () {
 
                             updateOriginalInput($dateInput, unixDate);
                         },
+                        'toolbox': {
+                            'enabled': true,
+                            onToday: function (datepickerObject) {
+
+                                updateOriginalInput($dateInput, (new Date()).getTime());
+                            }
+                        },
+
                         maxDate: $dateInput.data('max-date') || '+0D',
                         minDate: $dateInput.data('min-date') || '+365D',
                         initialValue: hasValue,
@@ -6602,9 +6618,39 @@ external_jQuery_default()(document).ready(function () {
     function updateOriginalInput(input, value = '') {
         if (!PMPRUtil.isEmpty(value)) {
 
-            value = new Date(value).toISOString().slice(0, 10);
+            value = getDate(value);
         }
         input.val(value).trigger('change');
+    }
+
+    function getDate(value) {
+
+        let date;
+        if (PMPRUtil.isEmpty(value)) {
+
+            date = new Date();
+        } else {
+
+            date = new Date(value);
+        }
+
+        return formatDate(date);
+    }
+
+    function formatDate(date) {
+
+        let day = '' + date.getDate(),
+            month = '' + (date.getMonth() + 1),
+            year = date.getFullYear();
+
+        if (month.length < 2)
+
+            month = '0' + month;
+        if (day.length < 2)
+
+            day = '0' + day;
+
+        return [year, month, day].join('-');
     }
 });
 })();
