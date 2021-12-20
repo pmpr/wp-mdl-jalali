@@ -1,7 +1,7 @@
 <?php
 /*   _______________________________________
     |  Obfuscated by PMPR - Php Obfuscator  |
-    |             61b74f25d3b86             |
+    |             61c0278e18924             |
     |_______________________________________|
 */
  namespace Pmpr\Package\Jalali; use Pmpr\Common\Foundation\Container\Container as BaseClass; use Pmpr\Common\Foundation\Manipulate\Post\ManipulatePost; class Container extends BaseClass { public function __construct() { $this->settingObj = Setting::symcgieuakksimmu(); parent::__construct(); } public function moeogyisgeuwoeea() : bool { return ManipulatePost::uqwgsuysegkweago($this->weysguygiseoukqw(Setting::VIRASTAR_POST_TYPE_TARGETS, [])); } }

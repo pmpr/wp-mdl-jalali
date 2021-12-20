@@ -403,3 +403,4 @@ msgstr "نازنین"
 #: src/Pmpr/Package/Jalali/Setting.php:191
 msgid "Shabnam"
 msgstr "شبنم"
+
