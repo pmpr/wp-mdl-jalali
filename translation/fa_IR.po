@@ -22,385 +22,385 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: lib\n"
 "X-Poedit-SearchPathExcluded-1: *.js\n"
 
-#: src/Pmpr/Package/Jalali/Area/Admin.php:196
+#: src/Pmpr/Module/Jalali/Area/Admin.php:196
 msgid "Writing Correction"
 msgstr "اصلاح نگارشی"
 
-#: src/Pmpr/Package/Jalali/Converter.php:82
+#: src/Pmpr/Module/Jalali/Converter.php:82
 msgid "Ten"
 msgstr "ده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:83
+#: src/Pmpr/Module/Jalali/Converter.php:83
 msgid "Eleven"
 msgstr "یازده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:84
+#: src/Pmpr/Module/Jalali/Converter.php:84
 msgid "Twelve"
 msgstr "دوازده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:85
+#: src/Pmpr/Module/Jalali/Converter.php:85
 msgid "Thirteen"
 msgstr "سیزده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:86
+#: src/Pmpr/Module/Jalali/Converter.php:86
 msgid "Fourteen"
 msgstr "چهارده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:87
+#: src/Pmpr/Module/Jalali/Converter.php:87
 msgid "Fifteen"
 msgstr "پانزده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:88
+#: src/Pmpr/Module/Jalali/Converter.php:88
 msgid "Sixteen"
 msgstr "شانزده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:89
+#: src/Pmpr/Module/Jalali/Converter.php:89
 msgid "Seventeen"
 msgstr "هفده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:90
+#: src/Pmpr/Module/Jalali/Converter.php:90
 msgid "Eighteen"
 msgstr "هجده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:91
+#: src/Pmpr/Module/Jalali/Converter.php:91
 msgid "Nineteen"
 msgstr "نوزده"
 
-#: src/Pmpr/Package/Jalali/Converter.php:100
+#: src/Pmpr/Module/Jalali/Converter.php:100
 msgid "Twenty"
 msgstr "بیست"
 
-#: src/Pmpr/Package/Jalali/Converter.php:101
+#: src/Pmpr/Module/Jalali/Converter.php:101
 msgid "Thirty"
 msgstr "سی"
 
-#: src/Pmpr/Package/Jalali/Converter.php:102
+#: src/Pmpr/Module/Jalali/Converter.php:102
 msgid "Forty"
 msgstr "چهل"
 
-#: src/Pmpr/Package/Jalali/Converter.php:103
+#: src/Pmpr/Module/Jalali/Converter.php:103
 msgid "Fifty"
 msgstr "پنجاه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:104
+#: src/Pmpr/Module/Jalali/Converter.php:104
 msgid "Sixty"
 msgstr "شست"
 
-#: src/Pmpr/Package/Jalali/Converter.php:105
+#: src/Pmpr/Module/Jalali/Converter.php:105
 msgid "Seventy"
 msgstr "هفتاد"
 
-#: src/Pmpr/Package/Jalali/Converter.php:106
+#: src/Pmpr/Module/Jalali/Converter.php:106
 msgid "Eighty"
 msgstr "هشتاد"
 
-#: src/Pmpr/Package/Jalali/Converter.php:107
+#: src/Pmpr/Module/Jalali/Converter.php:107
 msgid "Ninety"
 msgstr "نود"
 
-#: src/Pmpr/Package/Jalali/Converter.php:112
+#: src/Pmpr/Module/Jalali/Converter.php:112
 msgid "One"
 msgstr "یک"
 
-#: src/Pmpr/Package/Jalali/Converter.php:113
+#: src/Pmpr/Module/Jalali/Converter.php:113
 msgid "Two"
 msgstr "دو"
 
-#: src/Pmpr/Package/Jalali/Converter.php:114
+#: src/Pmpr/Module/Jalali/Converter.php:114
 msgid "Three"
 msgstr "سه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:115
+#: src/Pmpr/Module/Jalali/Converter.php:115
 msgid "Four"
 msgstr "چهار"
 
-#: src/Pmpr/Package/Jalali/Converter.php:116
+#: src/Pmpr/Module/Jalali/Converter.php:116
 msgid "Five"
 msgstr "پنج"
 
-#: src/Pmpr/Package/Jalali/Converter.php:117
+#: src/Pmpr/Module/Jalali/Converter.php:117
 msgid "Six"
 msgstr "شش"
 
-#: src/Pmpr/Package/Jalali/Converter.php:118
+#: src/Pmpr/Module/Jalali/Converter.php:118
 msgid "Seven"
 msgstr "هفت"
 
-#: src/Pmpr/Package/Jalali/Converter.php:119
+#: src/Pmpr/Module/Jalali/Converter.php:119
 msgid "Eight"
 msgstr "هشت"
 
-#: src/Pmpr/Package/Jalali/Converter.php:120
+#: src/Pmpr/Module/Jalali/Converter.php:120
 msgid "Nine"
 msgstr "نه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:190
+#: src/Pmpr/Module/Jalali/Converter.php:190
 msgid "Saturday"
 msgstr "شنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:191
+#: src/Pmpr/Module/Jalali/Converter.php:191
 msgid "Sunday"
 msgstr "یکشنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:192
+#: src/Pmpr/Module/Jalali/Converter.php:192
 msgid "Monday"
 msgstr "دوشنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:193
+#: src/Pmpr/Module/Jalali/Converter.php:193
 msgid "Tuesday"
 msgstr "سه‌شنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:194
+#: src/Pmpr/Module/Jalali/Converter.php:194
 msgid "Wednesday"
 msgstr "چارشنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:195
+#: src/Pmpr/Module/Jalali/Converter.php:195
 msgid "Thursday"
 msgstr "پنجشنبه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:196
+#: src/Pmpr/Module/Jalali/Converter.php:196
 msgid "Friday"
 msgstr "جمعه"
 
-#: src/Pmpr/Package/Jalali/Converter.php:203
+#: src/Pmpr/Module/Jalali/Converter.php:203
 msgid "Snake"
 msgstr "مار"
 
-#: src/Pmpr/Package/Jalali/Converter.php:204
+#: src/Pmpr/Module/Jalali/Converter.php:204
 msgid "Horse"
 msgstr "اسب"
 
-#: src/Pmpr/Package/Jalali/Converter.php:205
+#: src/Pmpr/Module/Jalali/Converter.php:205
 msgid "Goat"
 msgstr "بز"
 
-#: src/Pmpr/Package/Jalali/Converter.php:206
+#: src/Pmpr/Module/Jalali/Converter.php:206
 msgid "Monkey"
 msgstr "میمون"
 
-#: src/Pmpr/Package/Jalali/Converter.php:207
+#: src/Pmpr/Module/Jalali/Converter.php:207
 msgid "Rooster"
 msgstr "خروس"
 
-#: src/Pmpr/Package/Jalali/Converter.php:208
+#: src/Pmpr/Module/Jalali/Converter.php:208
 msgid "Dog"
 msgstr "سگ"
 
-#: src/Pmpr/Package/Jalali/Converter.php:209
+#: src/Pmpr/Module/Jalali/Converter.php:209
 msgid "Pig"
 msgstr "خوک"
 
-#: src/Pmpr/Package/Jalali/Converter.php:210
+#: src/Pmpr/Module/Jalali/Converter.php:210
 msgid "Rat"
 msgstr "موش"
 
-#: src/Pmpr/Package/Jalali/Converter.php:211
+#: src/Pmpr/Module/Jalali/Converter.php:211
 msgid "Ox"
 msgstr "گاو"
 
-#: src/Pmpr/Package/Jalali/Converter.php:212
+#: src/Pmpr/Module/Jalali/Converter.php:212
 msgid "Tiger"
 msgstr "ببر"
 
-#: src/Pmpr/Package/Jalali/Converter.php:213
+#: src/Pmpr/Module/Jalali/Converter.php:213
 msgid "Rabbit"
 msgstr "خرگوش"
 
-#: src/Pmpr/Package/Jalali/Converter.php:214
+#: src/Pmpr/Module/Jalali/Converter.php:214
 msgid "Dragon"
 msgstr "اژدها"
 
-#: src/Pmpr/Package/Jalali/Converter.php:241
+#: src/Pmpr/Module/Jalali/Converter.php:241
 msgid "Spring"
 msgstr "بهار"
 
-#: src/Pmpr/Package/Jalali/Converter.php:242
+#: src/Pmpr/Module/Jalali/Converter.php:242
 msgid "Summer"
 msgstr "تابستان"
 
-#: src/Pmpr/Package/Jalali/Converter.php:243
+#: src/Pmpr/Module/Jalali/Converter.php:243
 msgid "Autumn"
 msgstr "پاییز"
 
-#: src/Pmpr/Package/Jalali/Converter.php:244
+#: src/Pmpr/Module/Jalali/Converter.php:244
 msgid "Winter"
 msgstr "زمستان"
 
-#: src/Pmpr/Package/Jalali/Converter.php:271
+#: src/Pmpr/Module/Jalali/Converter.php:271
 msgid "Sat"
 msgstr "ش"
 
-#: src/Pmpr/Package/Jalali/Converter.php:272
+#: src/Pmpr/Module/Jalali/Converter.php:272
 msgid "Sun"
 msgstr "ی"
 
-#: src/Pmpr/Package/Jalali/Converter.php:273
+#: src/Pmpr/Module/Jalali/Converter.php:273
 msgid "Mon"
 msgstr "د"
 
-#: src/Pmpr/Package/Jalali/Converter.php:274
+#: src/Pmpr/Module/Jalali/Converter.php:274
 msgid "Tue"
 msgstr "س"
 
-#: src/Pmpr/Package/Jalali/Converter.php:275
+#: src/Pmpr/Module/Jalali/Converter.php:275
 msgid "Wed"
 msgstr "چ"
 
-#: src/Pmpr/Package/Jalali/Converter.php:276
+#: src/Pmpr/Module/Jalali/Converter.php:276
 msgid "Thu"
 msgstr "پ"
 
-#: src/Pmpr/Package/Jalali/Converter.php:277
+#: src/Pmpr/Module/Jalali/Converter.php:277
 msgid "Fri"
 msgstr "ج"
 
-#: src/Pmpr/Package/Jalali/Converter.php:459
+#: src/Pmpr/Module/Jalali/Converter.php:459
 msgid "PM"
 msgstr "ق.ظ"
 
-#: src/Pmpr/Package/Jalali/Converter.php:459
+#: src/Pmpr/Module/Jalali/Converter.php:459
 msgid "AM"
 msgstr "ب.ظ"
 
-#: src/Pmpr/Package/Jalali/Converter.php:463
+#: src/Pmpr/Module/Jalali/Converter.php:463
 msgid "Before noon"
 msgstr "قبل از ظهر"
 
-#: src/Pmpr/Package/Jalali/Converter.php:463
+#: src/Pmpr/Module/Jalali/Converter.php:463
 msgid "After noon"
 msgstr "بعد از ظهر"
 
-#: src/Pmpr/Package/Jalali/Setting.php:49
+#: src/Pmpr/Module/Jalali/Setting.php:49
 msgid "Jalali"
 msgstr "جلالی"
 
-#: src/Pmpr/Package/Jalali/Setting.php:57
-#: src/Pmpr/Package/Jalali/Setting.php:151
+#: src/Pmpr/Module/Jalali/Setting.php:57
+#: src/Pmpr/Module/Jalali/Setting.php:151
 msgid "General"
 msgstr "عمومی"
 
-#: src/Pmpr/Package/Jalali/Setting.php:61
-#: src/Pmpr/Package/Jalali/Setting.php:167
+#: src/Pmpr/Module/Jalali/Setting.php:61
+#: src/Pmpr/Module/Jalali/Setting.php:167
 msgid "Numbers"
 msgstr "عددها"
 
-#: src/Pmpr/Package/Jalali/Setting.php:65
+#: src/Pmpr/Module/Jalali/Setting.php:65
 msgid "Decimal symbol:"
 msgstr "نمایشگر اعشار:"
 
-#: src/Pmpr/Package/Jalali/Setting.php:67
-#: src/Pmpr/Package/Jalali/Setting.php:79
+#: src/Pmpr/Module/Jalali/Setting.php:67
+#: src/Pmpr/Module/Jalali/Setting.php:79
 msgid "Point"
 msgstr "نقطه"
 
-#: src/Pmpr/Package/Jalali/Setting.php:68
+#: src/Pmpr/Module/Jalali/Setting.php:68
 msgid "Slash"
 msgstr "اسلش"
 
-#: src/Pmpr/Package/Jalali/Setting.php:69
-#: src/Pmpr/Package/Jalali/Setting.php:81
+#: src/Pmpr/Module/Jalali/Setting.php:69
+#: src/Pmpr/Module/Jalali/Setting.php:81
 msgid "Single quote"
 msgstr "تک کوتیشن"
 
-#: src/Pmpr/Package/Jalali/Setting.php:70
-#: src/Pmpr/Package/Jalali/Setting.php:78
+#: src/Pmpr/Module/Jalali/Setting.php:70
+#: src/Pmpr/Module/Jalali/Setting.php:78
 msgid "Comma"
 msgstr "کاما"
 
-#: src/Pmpr/Package/Jalali/Setting.php:76
+#: src/Pmpr/Module/Jalali/Setting.php:76
 msgid "Thousand separator symbol:"
 msgstr "جداساز هزارگان:"
 
-#: src/Pmpr/Package/Jalali/Setting.php:80
+#: src/Pmpr/Module/Jalali/Setting.php:80
 msgid "Space"
 msgstr "فاصله"
 
-#: src/Pmpr/Package/Jalali/Setting.php:89
+#: src/Pmpr/Module/Jalali/Setting.php:89
 msgid "Front Page"
 msgstr "بخش نمایشی سایت"
 
-#: src/Pmpr/Package/Jalali/Setting.php:95
+#: src/Pmpr/Module/Jalali/Setting.php:95
 msgid "Permalink Dates"
 msgstr "تاریخ پیوندهای یکتا"
 
-#: src/Pmpr/Package/Jalali/Setting.php:96
+#: src/Pmpr/Module/Jalali/Setting.php:96
 msgid "Convert dates in permalink."
 msgstr "تبدیل تاریخ در پیوندهای یکتا."
 
-#: src/Pmpr/Package/Jalali/Setting.php:103
+#: src/Pmpr/Module/Jalali/Setting.php:103
 msgid "Administrator Panel"
 msgstr "بخش مدیریت سایت"
 
-#: src/Pmpr/Package/Jalali/Setting.php:109
+#: src/Pmpr/Module/Jalali/Setting.php:109
 msgid "Advanced"
 msgstr "پیشرفته"
 
-#: src/Pmpr/Package/Jalali/Setting.php:113
+#: src/Pmpr/Module/Jalali/Setting.php:113
 msgid "Font"
 msgstr "فونت‌"
 
-#: src/Pmpr/Package/Jalali/Setting.php:119
+#: src/Pmpr/Module/Jalali/Setting.php:119
 msgid "Virastar Target Post Types"
 msgstr "نوع نوشته‌های ویراستار"
 
-#: src/Pmpr/Package/Jalali/Setting.php:123
+#: src/Pmpr/Module/Jalali/Setting.php:123
 msgid "Choice post types you want enable virastar for theme."
 msgstr ""
 "نوع نوشته‌هایی را که می‌خواهید ویراستار در آن‌ها فعال باشد را انتخاب کنید."
 
-#: src/Pmpr/Package/Jalali/Setting.php:135
+#: src/Pmpr/Module/Jalali/Setting.php:135
 msgid "Plugins"
 msgstr "افزونه‌ها"
 
-#: src/Pmpr/Package/Jalali/Setting.php:155
+#: src/Pmpr/Module/Jalali/Setting.php:155
 msgid "Date & Time"
 msgstr "تاریخ و ساعت"
 
-#: src/Pmpr/Package/Jalali/Setting.php:156
+#: src/Pmpr/Module/Jalali/Setting.php:156
 msgid "Convert dates in this segment"
 msgstr "تبدیل تاریخ در این بخش از سایت"
 
-#: src/Pmpr/Package/Jalali/Setting.php:161
+#: src/Pmpr/Module/Jalali/Setting.php:161
 msgid "Letters"
 msgstr "حروف"
 
-#: src/Pmpr/Package/Jalali/Setting.php:162
+#: src/Pmpr/Module/Jalali/Setting.php:162
 msgid "Change arabic letters to farsi"
 msgstr "تغییر حروف عربی به فارسی"
 
-#: src/Pmpr/Package/Jalali/Setting.php:168
+#: src/Pmpr/Module/Jalali/Setting.php:168
 msgid "Convert numbers in this segment"
 msgstr "تبدیل تاریخ در این بخش از سایت"
 
-#: src/Pmpr/Package/Jalali/Setting.php:184
+#: src/Pmpr/Module/Jalali/Setting.php:184
 msgid "Varzir"
 msgstr "وزیر"
 
-#: src/Pmpr/Package/Jalali/Setting.php:185
+#: src/Pmpr/Module/Jalali/Setting.php:185
 msgid "Lotus"
 msgstr "لوتوس"
 
-#: src/Pmpr/Package/Jalali/Setting.php:186
+#: src/Pmpr/Module/Jalali/Setting.php:186
 msgid "Yekan"
 msgstr "یکان"
 
-#: src/Pmpr/Package/Jalali/Setting.php:187
+#: src/Pmpr/Module/Jalali/Setting.php:187
 msgid "Sahel"
 msgstr "ساحل"
 
-#: src/Pmpr/Package/Jalali/Setting.php:188
+#: src/Pmpr/Module/Jalali/Setting.php:188
 msgid "Mitra"
 msgstr "میترا"
 
-#: src/Pmpr/Package/Jalali/Setting.php:189
+#: src/Pmpr/Module/Jalali/Setting.php:189
 msgid "Samim"
 msgstr "شیما"
 
-#: src/Pmpr/Package/Jalali/Setting.php:190
+#: src/Pmpr/Module/Jalali/Setting.php:190
 msgid "Nazanin"
 msgstr "نازنین"
 
-#: src/Pmpr/Package/Jalali/Setting.php:191
+#: src/Pmpr/Module/Jalali/Setting.php:191
 msgid "Shabnam"
 msgstr "شبنم"
 

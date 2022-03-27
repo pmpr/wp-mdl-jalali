@@ -1,7 +1,7 @@
 <?php
 /*   _______________________________________
     |  Obfuscated by PMPR - Php Obfuscator  |
-    |             623bbab849bcc             |
+    |             62400d5299a66             |
     |_______________________________________|
 */
- use Pmpr\Package\Jalali\Jalali; Jalali::symcgieuakksimmu();
+ use Pmpr\Module\Jalali\Jalali; Jalali::symcgieuakksimmu();

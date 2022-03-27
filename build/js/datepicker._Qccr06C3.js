@@ -7855,10 +7855,6 @@ external_jQuery_default()(document).ready(function () {
             scroll: {
                 enabled: true
             },
-            text: {
-                btnNextText: ">",
-                btnPrevText: "<"
-            }
         },
     };
 
