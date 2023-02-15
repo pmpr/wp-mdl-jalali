@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pmpr Jalali\n"
-"POT-Creation-Date: 2023-01-22 12:29+0330\n"
-"PO-Revision-Date: 2023-01-22 12:30+0330\n"
+"POT-Creation-Date: 2023-02-13 15:19+0330\n"
+"PO-Revision-Date: 2023-02-13 18:18+0330\n"
 "Last-Translator: Farshadi <Farshad_asgharzade@hotmail.com>\n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -270,100 +270,112 @@ msgstr "قبل از ظهر"
 msgid "After noon"
 msgstr "بعد از ظهر"
 
-#: src/Pmpr/Module/Jalali/Jalali.php:22 src/Pmpr/Module/Jalali/Setting.php:45
+#: src/Pmpr/Module/Jalali/Jalali.php:23 src/Pmpr/Module/Jalali/Setting.php:49
 msgid "Jalali"
 msgstr "جلالی"
 
-#: src/Pmpr/Module/Jalali/Setting.php:46
+#: src/Pmpr/Module/Jalali/Setting.php:50
 msgid "Jalali Setting"
 msgstr "تنظیمات جلالی"
 
-#: src/Pmpr/Module/Jalali/Setting.php:54 src/Pmpr/Module/Jalali/Setting.php:127
+#: src/Pmpr/Module/Jalali/Setting.php:58 src/Pmpr/Module/Jalali/Setting.php:148
 msgid "General"
 msgstr "عمومی"
 
-#: src/Pmpr/Module/Jalali/Setting.php:58 src/Pmpr/Module/Jalali/Setting.php:141
+#: src/Pmpr/Module/Jalali/Setting.php:62 src/Pmpr/Module/Jalali/Setting.php:162
 msgid "Numbers"
 msgstr "عددها"
 
-#: src/Pmpr/Module/Jalali/Setting.php:62
+#: src/Pmpr/Module/Jalali/Setting.php:66
 msgid "Decimal symbol"
 msgstr "نمایشگر اعشار"
 
-#: src/Pmpr/Module/Jalali/Setting.php:64 src/Pmpr/Module/Jalali/Setting.php:74
+#: src/Pmpr/Module/Jalali/Setting.php:68 src/Pmpr/Module/Jalali/Setting.php:78
 msgid "Point"
 msgstr "نقطه"
 
-#: src/Pmpr/Module/Jalali/Setting.php:65
+#: src/Pmpr/Module/Jalali/Setting.php:69
 msgid "Slash"
 msgstr "اسلش"
 
-#: src/Pmpr/Module/Jalali/Setting.php:66 src/Pmpr/Module/Jalali/Setting.php:76
+#: src/Pmpr/Module/Jalali/Setting.php:70 src/Pmpr/Module/Jalali/Setting.php:80
 msgid "Single quote"
 msgstr "تک کوتیشن"
 
-#: src/Pmpr/Module/Jalali/Setting.php:67 src/Pmpr/Module/Jalali/Setting.php:73
+#: src/Pmpr/Module/Jalali/Setting.php:71 src/Pmpr/Module/Jalali/Setting.php:77
 msgid "Comma"
 msgstr "کاما"
 
-#: src/Pmpr/Module/Jalali/Setting.php:71
+#: src/Pmpr/Module/Jalali/Setting.php:75
 msgid "Thousand separator symbol"
 msgstr "جداساز هزارگان"
 
-#: src/Pmpr/Module/Jalali/Setting.php:75
+#: src/Pmpr/Module/Jalali/Setting.php:79
 msgid "Space"
 msgstr "فاصله"
 
-#: src/Pmpr/Module/Jalali/Setting.php:83
+#: src/Pmpr/Module/Jalali/Setting.php:87
 msgid "Front Page"
 msgstr "بخش نمایشی سایت"
 
-#: src/Pmpr/Module/Jalali/Setting.php:89
+#: src/Pmpr/Module/Jalali/Setting.php:93
 msgid "Permalink Dates"
 msgstr "تاریخ پیوندهای یکتا"
 
-#: src/Pmpr/Module/Jalali/Setting.php:90
+#: src/Pmpr/Module/Jalali/Setting.php:94
 msgid "Convert dates in permalink."
 msgstr "تبدیل تاریخ در پیوندهای یکتا."
 
-#: src/Pmpr/Module/Jalali/Setting.php:96
+#: src/Pmpr/Module/Jalali/Setting.php:100
 msgid "Administrator Panel"
 msgstr "بخش مدیریت سایت"
 
-#: src/Pmpr/Module/Jalali/Setting.php:101
+#: src/Pmpr/Module/Jalali/Setting.php:105
 msgid "Advanced"
 msgstr "پیشرفته"
 
-#: src/Pmpr/Module/Jalali/Setting.php:106
+#: src/Pmpr/Module/Jalali/Setting.php:110
 msgid "Virastar Target Post Types"
 msgstr "نوع نوشته‌های ویراستار"
 
-#: src/Pmpr/Module/Jalali/Setting.php:107
+#: src/Pmpr/Module/Jalali/Setting.php:112
 msgid "Choice post types you want enable virastar."
 msgstr ""
 "نوع نوشته‌هایی را که می‌خواهید ویراستار در آن‌ها فعال باشد را انتخاب کنید."
 
-#: src/Pmpr/Module/Jalali/Setting.php:113
+#: src/Pmpr/Module/Jalali/Setting.php:121
+msgid "WooCommerce"
+msgstr ""
+
+#: src/Pmpr/Module/Jalali/Setting.php:125
+msgid "Woocommerce Price"
+msgstr ""
+
+#: src/Pmpr/Module/Jalali/Setting.php:126
+msgid "Convert price of products in woocommerce."
+msgstr ""
+
+#: src/Pmpr/Module/Jalali/Setting.php:132
 msgid "Plugins & Components"
 msgstr "افزونه‌ها و کامپوننت‌ها"
 
-#: src/Pmpr/Module/Jalali/Setting.php:131
+#: src/Pmpr/Module/Jalali/Setting.php:152
 msgid "Date & Time"
 msgstr "تاریخ و ساعت"
 
-#: src/Pmpr/Module/Jalali/Setting.php:132
+#: src/Pmpr/Module/Jalali/Setting.php:153
 msgid "Convert dates in this segment"
 msgstr "تبدیل تاریخ در این بخش از سایت"
 
-#: src/Pmpr/Module/Jalali/Setting.php:136
+#: src/Pmpr/Module/Jalali/Setting.php:157
 msgid "Letters"
 msgstr "حروف"
 
-#: src/Pmpr/Module/Jalali/Setting.php:137
+#: src/Pmpr/Module/Jalali/Setting.php:158
 msgid "Change arabic letters to farsi"
 msgstr "تغییر حروف عربی به فارسی"
 
-#: src/Pmpr/Module/Jalali/Setting.php:142
+#: src/Pmpr/Module/Jalali/Setting.php:163
 msgid "Convert numbers in this segment"
 msgstr "تبدیل تاریخ در این بخش از سایت"
 

@@ -4,4 +4,4 @@
     |             63ecdc2dce997             |
     |_______________________________________|
 */
- use Pmpr\Module\Jalali\Jalali; Jalali::symcgieuakksimmu();
+ namespace Pmpr\Module\Jalali\Plugin; use Pmpr\Module\Jalali\Container; abstract class Common extends Container { }
