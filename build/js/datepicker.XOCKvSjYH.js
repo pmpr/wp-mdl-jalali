@@ -7955,6 +7955,7 @@ external_jQuery_default()(document).ready(function () {
                             PMPRUtil.invalidInput($jalaliDateInput, $message, false);
                         }
                     })
+
                     let $options = external_jQuery_default().extend(datepickerOptions, {
                         'onSelect': function (unixDate) {
 
@@ -7976,7 +7977,18 @@ external_jQuery_default()(document).ready(function () {
                         minDate: $dateInput.data('min-date') || '',
                         initialValue: hasValue,
                     });
+
                     let $datepicker = $jalaliDateInput.pDatepicker($options);
+
+                    $dateInput.on('datepicker-change-origin', function () {
+
+                        let value = external_jQuery_default()(this).val(),
+                            unix = new Date(value).valueOf();
+
+                        $datepicker.setDate(unix);
+                    });
+
+
                     external_jQuery_default()(document).keyup(function (evt) {
                         let isEscape;
                         if ("key" in evt) {
@@ -7987,6 +7999,7 @@ external_jQuery_default()(document).ready(function () {
                             isEscape = (evt.keyCode === 27);
                         }
                         if (isEscape) {
+
                             $datepicker.hide();
                         }
                     });
