@@ -7896,33 +7896,36 @@ external_jQuery_default()(document).ready(function () {
                     $dateInput.css('display', 'none');
                     $dateInput.addClass('jalali-rendered');
                     $dateInput.removeClass(selector);
-                    let $value = $dateInput.attr('value');
-                    if (PMPRUtil.isEmpty($value)) {
+                    let value = $dateInput.attr('value');
+                    if (PMPRUtil.isEmpty(value)) {
 
-                        $value = $dateInput.val();
+                        value = $dateInput.val();
+                    }
+                    if (!PMPRUtil.isDate(value)) {
+
+                        value = '';
                     }
 
                     if ($dateInput.is('.auto-init')
-                        && PMPRUtil.isEmpty($value)) {
+                        && PMPRUtil.isEmpty(value)) {
 
-                        $value = getDate();
+                        value = getDate();
                     }
 
-                    if (!PMPRUtil.isEmpty($value)
-                        && !PMPRUtil.isDate($value)) {
+                    if (!PMPRUtil.isEmpty(value)) {
 
-                        $value = PMPRUtil.number2english($value).split('-');
-                        $value = $value.map(function (num) {
+                        value = PMPRUtil.number2english(value).split('-');
+                        value = value.map(function (num) {
                             return parseInt(num, 10);
                         });
 
-                        let $converter = new persianDate($value)
+                        let $converter = new persianDate(value)
                             .toLocale('en').toCalendar('gregorian');
 
-                        $value = $converter.format('YYYY-MM-DD');
+                        value = $converter.format('YYYY-MM-DD');
                     }
 
-                    let hasValue = !PMPRUtil.isEmpty($value),
+                    let hasValue = !PMPRUtil.isEmpty(value),
                         $attrs = {
                             id: `jalali_${id}`,
                             dir: 'ltr',
@@ -7931,12 +7934,12 @@ external_jQuery_default()(document).ready(function () {
                             autocomplete: 'off'
                         };
 
-                    $dateInput.val($value);
+                    $dateInput.val(value);
                     $dateInput.trigger('change');
                     if (hasValue) {
 
-                        $attrs['value'] = $value;
-                        $attrs['data-date'] = $value;
+                        $attrs['value'] = value;
+                        $attrs['data-date'] = value;
                     }
                     let $placeholder = $dateInput.attr('placeholder');
                     if (!PMPRUtil.isEmpty($placeholder)) {
