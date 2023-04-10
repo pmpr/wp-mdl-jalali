@@ -1,7 +1,8 @@
 {
-  "tinymce.css": "/css/tinymce.JsL_3Ukzr.css",
-  "tinymce.js": "/js/tinymce.JsL_3Ukzr.js",
-  "datepicker.css": "/css/datepicker.JsL_3Ukzr.css",
-  "datepicker.js": "/js/datepicker.JsL_3Ukzr.js",
-  "virastar.js": "/js/virastar.JsL_3Ukzr.js"
+  "tinymce.css": "/css/tinymce.DFXtLCCPe.css",
+  "tinymce.js": "/js/tinymce.DFXtLCCPe.js",
+  "admin.js": "/js/admin.DFXtLCCPe.js",
+  "datepicker.css": "/css/datepicker.DFXtLCCPe.css",
+  "datepicker.js": "/js/datepicker.DFXtLCCPe.js",
+  "virastar.js": "/js/virastar.DFXtLCCPe.js"
 }
