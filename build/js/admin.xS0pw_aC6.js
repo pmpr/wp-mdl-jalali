@@ -3369,7 +3369,7 @@ external_jQuery_default()(document).ready(function () {
 
     function convert(date, to) {
 
-        new persianDate(date).toLocale('en').toCalendar(to).toArray();
+        return new persianDate(date).toLocale('en').toCalendar(to).toArray();
     }
 
     function persian2gregorian(year, month, day) {
