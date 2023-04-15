@@ -7838,6 +7838,7 @@ __webpack_require__(/*! ../scss/datepicker.scss */ 827);
 
 window.persianDate = __webpack_require__(/*! persian-date */ 401)
 ;
+// import Converter from "./converter";
 
 external_jQuery_default()(document).ready(function () {
 
@@ -7910,19 +7911,9 @@ external_jQuery_default()(document).ready(function () {
                         && PMPRUtil.isEmpty(value)) {
 
                         value = getDate();
-                    }
 
-                    if (!PMPRUtil.isEmpty(value)) {
-
-                        value = PMPRUtil.number2english(value).split('-');
-                        value = value.map(function (num) {
-                            return parseInt(num, 10);
-                        });
-
-                        let $converter = new persianDate(value)
-                            .toLocale('en').toCalendar('gregorian');
-
-                        value = $converter.format('YYYY-MM-DD');
+                        $dateInput.val(value);
+                        $dateInput.trigger('change');
                     }
 
                     let hasValue = !PMPRUtil.isEmpty(value),
@@ -7934,13 +7925,12 @@ external_jQuery_default()(document).ready(function () {
                             autocomplete: 'off'
                         };
 
-                    $dateInput.val(value);
-                    $dateInput.trigger('change');
                     if (hasValue) {
 
                         $attrs['value'] = value;
                         $attrs['data-date'] = value;
                     }
+
                     let $placeholder = $dateInput.attr('placeholder');
                     if (!PMPRUtil.isEmpty($placeholder)) {
 
