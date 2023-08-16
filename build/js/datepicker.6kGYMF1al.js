@@ -7835,6 +7835,7 @@ var es6 = __webpack_require__(478);
 __webpack_require__(/*! ../scss/datepicker.scss */ 827);
 
 
+window.$ = (external_jQuery_default());
 
 window.persianDate = __webpack_require__(/*! persian-date */ 401)
 ;
