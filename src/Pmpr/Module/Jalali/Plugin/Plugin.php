@@ -1,7 +1,7 @@
 <?php
 /*   _______________________________________
     |  Obfuscated by PMPR - Php Obfuscator  |
-    |             6687080c4527c             |
+    |             66ab90ab22b6a             |
     |_______________________________________|
 */
- namespace Pmpr\Module\Jalali\Plugin; class Plugin extends Common { public function wigskegsqequoeks() { $this->qcsmikeggeemccuu("\160\x6c\x75\147\151\x6e\163\137\x6c\157\141\144\145\144", [$this, "\x69\x63\x77\143\x67\x6d\143\x6f\151\x6d\x71\x65\151\147\x79\145"]); } public function icwcgmcoimqeigye() { if (!$this->caokeucsksukesyo()->wikusamwomuogoau()->ggocakcisguuokai()) { goto gcckqucukawcasgk; } Woocommerce::symcgieuakksimmu(); gcckqucukawcasgk: } }
+ namespace Pmpr\Module\Jalali\Plugin; class Plugin extends Common { public function wigskegsqequoeks() { $this->qcsmikeggeemccuu("\160\x6c\x75\x67\x69\x6e\x73\x5f\154\157\x61\144\x65\x64", [$this, "\x69\x63\x77\x63\x67\155\x63\x6f\151\155\161\x65\151\147\171\145"]); } public function icwcgmcoimqeigye() { if (!$this->caokeucsksukesyo()->wikusamwomuogoau()->ggocakcisguuokai()) { goto umgaesggesswoaqe; } Woocommerce::symcgieuakksimmu(); umgaesggesswoaqe: } }

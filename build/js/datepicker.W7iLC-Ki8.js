@@ -7876,6 +7876,11 @@ external_jQuery_default()(document).ready(function () {
         initJalaliDatepicker(PMPR_DATEPICKER, container);
     });
 
+    PRHelper.getHook().addAction('form_generator_field_added_to_dom', (container) => {
+
+        initJalaliDatepicker(PMPR_DATEPICKER, container);
+    });
+
     function initJalaliDatepicker(selector, container = null) {
 
         let $dateInputs;
