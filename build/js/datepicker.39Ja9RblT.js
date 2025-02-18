@@ -7903,14 +7903,13 @@ external_jQuery_default()(document).ready(function () {
                     $dateInput.css('display', 'none');
                     $dateInput.addClass('jalali-rendered');
                     $dateInput.removeClass(selector);
-                    let value = $dateInput.attr('value');
+                    let value = $dateInput.val();
                     if (PMPRUtil.isEmpty(value)) {
-
                         value = $dateInput.val();
                     }
+                    let initialValueType = 'gregorian'
                     if (!PMPRUtil.isDate(value)) {
-
-                        value = '';
+                        initialValueType = 'persian';
                     }
 
                     if ($dateInput.is('.auto-init')
@@ -7975,6 +7974,7 @@ external_jQuery_default()(document).ready(function () {
                         maxDate: $dateInput.data('max-date') || '',
                         minDate: $dateInput.data('min-date') || '',
                         initialValue: hasValue,
+                        initialValueType: initialValueType,
                     });
 
                     let $datepicker = $jalaliDateInput.pDatepicker($options);
