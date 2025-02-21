@@ -7713,7 +7713,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
     const HAS_DATEPICKER = '.hasDatepicker:not(.jalali-rendered)';
     const PMPR_DATEPICKER = '.pr-datepicker:not(.jalali-rendered)';
 
-    const datepickerOptions = {
+    const DEFAULT_OPTIONS = {
         format: 'YYYY/MM/D',
         observer: true,
         autoClose: true,
@@ -7785,6 +7785,8 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
 
         if (HTMLHelper.isElement(element)) {
 
+            options = PRHelper.getFormat().parseArgs(options, DEFAULT_OPTIONS);
+
             const id = HTMLHelper.getAttribute(element, 'id');
             let jalaliElement = HTMLHelper.getElement('#jalali_' + id);
             if (!HTMLHelper.isElement(jalaliElement)) {
@@ -7792,6 +7794,10 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                 HTMLHelper.addAttribute(element, {style: {display: 'none'}});
                 HTMLHelper.addClass(element, 'jalali-rendered');
                 let value = HTMLHelper.getValue(element);
+
+                if (TypeHelper.isDate(value)) {
+                    options.initialValueType = 'gregorian'
+                }
 
                 if (HTMLHelper.is(element, '.auto-init')
                     && TypeHelper.isEmpty(value)) {
@@ -7812,9 +7818,6 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                     };
 
                 if (hasValue) {
-                    if (TypeHelper.isDate(value)) {
-                        value = new persianDate(value).format('YYYY-MM-DD');
-                    }
                     attrs['value'] = value;
                     attrs['data-date'] = value;
                 }
@@ -7864,8 +7867,6 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                             updateOriginalInput(element, (new Date()).getTime());
                         }
                     };
-
-                    options = PRHelper.getFormat().parseArgs(datepickerOptions, options);
 
                     if (options.inline === true) {
                         options.altField = `#${element.id}`;
