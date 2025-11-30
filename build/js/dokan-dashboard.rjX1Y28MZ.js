@@ -184,8 +184,10 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
         await ToolHelper.delay(50)
         HTMLHelper.addClass(input, 'pr-datepicker');
         const oneDay = 24 * 60 * 60 * 1000;
-        HTMLHelper.setData(input, 'min-date', Date.now() + oneDay);
-        HookHelper.doAction('form_generator_field_added_to_dom', HTMLHelper.getParent(input));
+        HookHelper.doAction('form_generator_field_added_to_dom', HTMLHelper.getParent(input), {
+            minDate: Date.now() + oneDay,
+            toolbox: {todayButton: {enabled: false, text: {fa: '', en: ''}}}
+        });
         HookHelper.on('change', async (event, element) => {
             const value = HTMLHelper.getValue(element);
             if (PRHelper.getType().isDate(value)) {
@@ -283,9 +285,10 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
 
     async function navigateToMonth(targetYear, targetMonth) {
 
-        const {year, month, day} = getCurrentReactCalendar(),
-              diff               = getMonthDiff(year, month, targetYear, targetMonth);
+        const {year, month, day} = getCurrentReactCalendar();
+        if (year <= 0) return;
 
+        const diff = getMonthDiff(year, month, targetYear, targetMonth);
         if (diff === 0) return;
 
         if (diff > 0) {

@@ -4867,8 +4867,8 @@ class View {
         let style = {};
         if (this.model.options.position === 'auto') {
             style = {
-                // left: inputPosition.left + 'px',
-                left: Math.abs(inputPosition.left - inputSize.width) + 'px',
+                // left: inputPosition.left + 'px', 270 is datepicker width
+                left: Math.abs(inputPosition.left + inputSize.width - 270) + 'px',
                 top: (inputPosition.top + inputSize.height) + 'px'
             }
         } else {
@@ -7782,12 +7782,15 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
     function initWCAnalyticsInputs() {
     }
 
-    function maybeInits(container = null) {
+    function maybeInits(container = null, options = {}) {
+        if (typeof options !== "object") {
+            options = {};
+        }
         const pmprDatepickers = HTMLHelper.getElements('.pr-datepicker:not(.jalali-rendered)', container);
         if (!TypeHelper.isEmpty(pmprDatepickers)) {
             TypeHelper.each(pmprDatepickers, (element) => {
                 if (HookHelper.applyFilters('form_generator_field_allow_process', true, element)) {
-                    init(element)
+                    init(element, options)
                 }
             });
         }
@@ -7806,7 +7809,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
 
                         HTMLHelper.setValue(element, gDate);
                     }
-                    init(element)
+                    init(element, options)
                 }
             });
         }
