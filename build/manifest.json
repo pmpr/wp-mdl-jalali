@@ -1,8 +1,16 @@
 {
-  "tinymce.css": "/css/tinymce.Edp3oeSyH.css",
-  "tinymce.js": "/js/tinymce.Edp3oeSyH.js",
-  "admin.js": "/js/admin.Edp3oeSyH.js",
-  "datepicker.css": "/css/datepicker.Edp3oeSyH.css",
-  "datepicker.js": "/js/datepicker.Edp3oeSyH.js",
-  "virastar.js": "/js/virastar.Edp3oeSyH.js"
+  "tinymce.css": "/css/tinymce.9fWFL73Ap.css",
+  "tinymce.js": "/js/tinymce.9fWFL73Ap.js",
+  "dokan-dashboard.css": "/css/dokan-dashboard.9fWFL73Ap.css",
+  "dokan-dashboard.js": "/js/dokan-dashboard.9fWFL73Ap.js",
+  "dokan-checkout.css": "/css/dokan-checkout.9fWFL73Ap.css",
+  "dokan-checkout.js": "/js/dokan-checkout.9fWFL73Ap.js",
+  "dokan-backend.css": "/css/dokan-backend.9fWFL73Ap.css",
+  "dokan-backend.js": "/js/dokan-backend.9fWFL73Ap.js",
+  "woocommerce-backend.css": "/css/woocommerce-backend.9fWFL73Ap.css",
+  "woocommerce-backend.js": "/js/woocommerce-backend.9fWFL73Ap.js",
+  "backend.js": "/js/backend.9fWFL73Ap.js",
+  "virastar.js": "/js/virastar.9fWFL73Ap.js",
+  "datepicker.css": "/css/datepicker.9fWFL73Ap.css",
+  "datepicker.js": "/js/datepicker.9fWFL73Ap.js"
 }

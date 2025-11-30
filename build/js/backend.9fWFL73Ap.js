@@ -35,9 +35,9 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!***************************************!*\
-  !*** ./asset/js/admin.js + 2 modules ***!
-  \***************************************/
+/*!*****************************************!*\
+  !*** ./asset/js/backend.js + 2 modules ***!
+  \*****************************************/
 
 ;// CONCATENATED MODULE: external "jQuery"
 const external_jQuery_namespaceObject = jQuery;
@@ -145,7 +145,7 @@ const Converter = {
 
 /* harmony default export */ const converter = (Converter);
 
-;// CONCATENATED MODULE: ./asset/js/admin.js
+;// CONCATENATED MODULE: ./asset/js/backend.js
 
 
 

@@ -3742,7 +3742,10 @@ class API {
      * // set options and render datepicker with new options
      */
     set options (inputOptions) {
-        let opt = $.extend(true, this.model.options, inputOptions);
+        const opt = PRHelper.getType().extend({
+            deep: false,
+            override: true
+        }, this.model.options, inputOptions);
         this.model.view.destroy();
         this.model.components(this.model.inputElement, opt);
     }
@@ -4864,7 +4867,7 @@ class View {
         let style = {};
         if (this.model.options.position === 'auto') {
             style = {
-                left: (inputSize.width + inputPosition.left) + 'px',
+                left: inputPosition.left + 'px',
                 top: (inputSize.height + inputPosition.top) + 'px'
             }
         } else {
@@ -5075,10 +5078,10 @@ class View {
      * @return {object}
      */
     _getDayViewModel() {
+
         if (this.model.state.viewMode !== 'day') {
             return [];
         }
-
 
         let isEnabled = this.model.options.dayPicker.enabled;
         // Make performance better
@@ -5089,7 +5092,9 @@ class View {
         }
 
         //log('if you see this many time your code has performance issue');
-        const viewMonth = this.model.state.view.month, viewYear = this.model.state.view.year;
+        const viewMonth = this.model.state.view.month,
+              viewYear = this.model.state.view.year;
+
         let pdateInstance       = this.model.PersianDate.date(),
             daysCount           = pdateInstance.daysInMonth(viewYear, viewMonth),
             firstWeekDayOfMonth = pdateInstance.getFirstWeekDayOfMonth(viewYear, viewMonth) - 1,
@@ -6129,7 +6134,7 @@ const Config = {
              * @default 'algorithmic'
              * @since 1.0.0
              */
-            'leapYearMode': 'algorithmic' // "astronomical"
+            'leapYearMode': 'astronomical' // "algorithmic"
         },
 
 
@@ -7109,7 +7114,11 @@ class Options {
      */
     constructor(options, model) {
         this.model = model;
-        options = this._compatibility(PRHelper.getType().extend(true, true, config, options));
+        options = this._compatibility(PRHelper.getType().extend({
+            deep: true,
+            override: true,
+            excludes: ['model']
+        }, config, options));
         return Object.assign(this, options);
     }
 
@@ -7708,10 +7717,8 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
 
     const HTMLHelper = PRHelper.getHTML(),
           TypeHelper = PRHelper.getType(),
+          I18NHelper = PRHelper.getI18n(),
           HookHelper = PRHelper.getHook();
-
-    const HAS_DATEPICKER = '.hasDatepicker:not(.jalali-rendered)';
-    const PMPR_DATEPICKER = '.pr-datepicker:not(.jalali-rendered)';
 
     const DEFAULT_OPTIONS = {
         format: 'YYYY/MM/D',
@@ -7727,6 +7734,9 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
             },
         },
     };
+
+    let initializedDatepickers = {};
+
     HookHelper.on('load', maybeInits);
     HookHelper.addAction('form_generator_field_added_to_dom', maybeInits, 999);
     HookHelper.bubbling('click', maybeInits, '#woocommerce-product-data a.sale_schedule');
@@ -7737,7 +7747,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
             canLoad = true;
         } else {
             canLoad = HTMLHelper.is(element, '.woocommerce-dropdown-button')
-                     && HTMLHelper.isElement(HTMLHelper.getElement('.components-tab-panel__tab-content > .woocommerce-calendar'))
+                      && HTMLHelper.isElement(HTMLHelper.getElement('.components-tab-panel__tab-content > .woocommerce-calendar'))
         }
         if (canLoad) {
             const elements = HTMLHelper.getElements('.woocommerce-calendar__input-text', '.woocommerce-calendar');
@@ -7749,17 +7759,18 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                         const input = viewObject.model.inputElement;
                         HTMLHelper.hide(container);
                         HTMLHelper.insert(container, HTMLHelper.getParent(input));
+
                         HookHelper.on('focus', () => {
                             HTMLHelper.show(container)
                         }, input);
-                        // HookHelper.on('blur', () => {
-                        //     setTimeout(() => {
-                        //         HTMLHelper.hide(container);
-                        //     }, 150)
-                        // }, input);
-                        HookHelper.on('change', () => {
+
+                        HookHelper.on('change input', (event, input) => {
                             HTMLHelper.hide(container);
-                            changeReactInput(element, element.value);
+                            const value = HTMLHelper.getValue(input);
+                            if (!TypeHelper.isDate(value)) {
+                                value = parseGregorian(value);
+                            }
+                            changeReactInput(input, value);
                         }, element)
                     }
                 })
@@ -7771,10 +7782,29 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
     }
 
     function maybeInits(container = null) {
-        const elements = HTMLHelper.getElements(`${HAS_DATEPICKER}, ${PMPR_DATEPICKER}`, container);
-        if (!TypeHelper.isEmpty(elements)) {
-            TypeHelper.each(elements, (element) => {
+        const pmprDatepickers = HTMLHelper.getElements('.pr-datepicker:not(.jalali-rendered)', container);
+        if (!TypeHelper.isEmpty(pmprDatepickers)) {
+            TypeHelper.each(pmprDatepickers, (element) => {
                 if (HookHelper.applyFilters('form_generator_field_allow_process', true, element)) {
+                    init(element)
+                }
+            });
+        }
+        const wooDatepickers = HTMLHelper.getElements('.hasDatepicker:not(.jalali-rendered)', container);
+        if (!TypeHelper.isEmpty(wooDatepickers)) {
+            TypeHelper.each(wooDatepickers, (element) => {
+                if (HookHelper.applyFilters('form_generator_field_allow_process', true, element)) {
+
+                    const value = HTMLHelper.getValue(element);
+
+                    if (!TypeHelper.isEmpty(value)
+                        && !TypeHelper.isDate(value)) {
+
+                        const dateArray = I18NHelper.number(value, 'english').split('-'),
+                              gDate = new window.persianDate(dateArray).toCalendar('gregorian').toLocale('en').format('YYYY-MM-DD');
+
+                        HTMLHelper.setValue(element, gDate);
+                    }
                     init(element)
                 }
             });
@@ -7784,16 +7814,19 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
     function init(element, options = {}) {
 
         if (HTMLHelper.isElement(element)) {
-
-            options = PRHelper.getFormat().parseArgs(options, DEFAULT_OPTIONS);
-
             const id = HTMLHelper.getAttribute(element, 'id');
+            options = PRHelper.getFormat().parseArgs(options, DEFAULT_OPTIONS);
             let jalaliElement = HTMLHelper.getElement('#jalali_' + id);
             if (!HTMLHelper.isElement(jalaliElement)) {
 
                 HTMLHelper.addAttribute(element, {style: {display: 'none'}});
                 HTMLHelper.addClass(element, 'jalali-rendered');
                 let value = HTMLHelper.getValue(element);
+
+                if (!TypeHelper.isEmpty(value)
+                    && !TypeHelper.isDate(value)) {
+                    value = parseGregorian(value);
+                }
 
                 if (TypeHelper.isDate(value)) {
                     options.initialValueType = 'gregorian'
@@ -7813,7 +7846,8 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                         id: `jalali_${id}`,
                         dir: 'ltr',
                         type: 'text',
-                        class: `direction-ltr ${HTMLHelper.getAttribute(element, 'class')}`,
+                        class: `direction-ltr pr-jalali ${HTMLHelper.getAttribute(element, 'class')}`,
+                        readonly: 'true',
                         autocomplete: 'off'
                     };
 
@@ -7827,18 +7861,17 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                     attrs['placeholder'] = placeholder;
                 }
 
+                for (const key in element.dataset) {
+                    attrs[`data-${key}`] = element.dataset[key];
+                }
+
                 jalaliElement = HTMLHelper.createElement('<input>');
                 HTMLHelper.addAttribute(jalaliElement, attrs);
                 HTMLHelper.insert(jalaliElement, element, 'before');
                 HookHelper.on('keyup keydown input paste', () => {
                     updateOriginalInput(element);
-
                     jalaliElement.value = '';
                     HookHelper.trigger('change', jalaliElement);
-                    // const message = PMPRUtil.getSettingByPath('messages.datepicker_invalid');
-                    // if (!TypeHelper.isEmpty(message)) {
-                    //     PMPRUtil.invalidInput(jalaliElement, message, false);
-                    // }
                 }, jalaliElement);
 
 
@@ -7852,17 +7885,20 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                         options.minDate = HTMLHelper.getData(element, 'min-date') || '';
                     }
                     options.initialValue = hasValue;
-                    options.onSelect = (unixDate) => {
-                        updateOriginalInput(element, unixDate);
-                        // PMPRUtil.invalidInput(jalaliElement, false);
-                    };
+
+                    options.dayPicker = {
+                        onSelect: (unixDate) => {
+                            updateOriginalInput(element, unixDate);
+                            updateConnectedRangeInput(element, unixDate);
+                        }
+                    }
 
                     options.onSet = (unixDate) => {
                         updateOriginalInput(element, unixDate);
                     };
 
                     options.toolbox = {
-                        'enabled': true,
+                        enabled: true,
                         onToday: (datepickerObject) => {
                             updateOriginalInput(element, (new Date()).getTime());
                         }
@@ -7879,6 +7915,8 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                               unix  = new Date(value).valueOf();
                         datepicker.setDate(unix);
                     }, element);
+
+                    initializedDatepickers[element.id] = datepicker;
 
                     HookHelper.on('keyup', (event) => {
                         let isEscape;
@@ -7900,8 +7938,40 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
         if (!TypeHelper.isEmpty(value)) {
             value = getDate(value);
         }
-        element.value = value;
-        HookHelper.trigger('change', element);
+        PRHelper.getHTML().setValue(element, value, true);
+    }
+
+    function updateConnectedRangeInput(element, unix) {
+        const datepicker = initializedDatepickers[element.id],
+              connected  = HTMLHelper.getData(element, 'connected-field');
+        if (datepicker && connected) {
+            datepicker.touched = true;
+            const connectedElement = HTMLHelper.getElement(`[data-field-id="${connected}"]`);
+            if (HTMLHelper.isElement(connectedElement)) {
+
+                const connectedInput = HTMLHelper.getElement('#jalali_' + connected, connectedElement);
+
+                if (typeof connectedInput.jDatepicker !== "undefined") {
+
+                    const connectedDatepicker  = connectedInput.jDatepicker,
+                          connectedOriginInput = HTMLHelper.getElement('#' + connected, connectedElement);
+
+                    const rangeType = HTMLHelper.getData(connectedOriginInput, 'type'),
+                          optionKey = rangeType === 'from' ? 'maxDate' : 'minDate';
+
+                    if (connectedDatepicker.options && connectedDatepicker.options[optionKey] != unix) {
+
+                        const cachedValue = connectedDatepicker.getState().selected.unixDate;
+                        let options = {};
+                        options[optionKey] = unix;
+                        connectedDatepicker.options = options;
+                        if (connectedDatepicker.touched) {
+                            connectedDatepicker.setDate(cachedValue);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     function getDate(value) {
@@ -7935,6 +8005,17 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                 return false
             }
         });
+    }
+
+    function parseGregorian(str) {
+
+        const {year, month, day} = PRHelper.getI18n().dateToGregorian(str);
+
+        const yyyy = year;
+        const mm = String(month).padStart(2, "0");
+        const dd = String(day).padStart(2, "0");
+
+        return `${yyyy}-${mm}-${dd}`;
     }
 })();
 
