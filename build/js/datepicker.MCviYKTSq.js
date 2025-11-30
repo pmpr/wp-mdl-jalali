@@ -4867,8 +4867,9 @@ class View {
         let style = {};
         if (this.model.options.position === 'auto') {
             style = {
-                left: inputPosition.left + 'px',
-                top: (inputSize.height + inputPosition.top) + 'px'
+                // left: inputPosition.left + 'px',
+                left: Math.abs(inputPosition.left - inputSize.width) + 'px',
+                top: (inputPosition.top + inputSize.height) + 'px'
             }
         } else {
             style = {
