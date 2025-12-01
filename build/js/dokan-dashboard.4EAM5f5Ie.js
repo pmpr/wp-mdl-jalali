@@ -146,7 +146,8 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
 
 (function () {
 
-    const HookHelper    = PRHelper.getHook(),
+    const TypeHelper    = PRHelper.getType(),
+          HookHelper    = PRHelper.getHook(),
           HTMLHelper    = PRHelper.getHTML(),
           ToolHelper    = PRHelper.getTool(),
           SettingHelper = PRHelper.getSetting();
@@ -178,6 +179,16 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
             HTMLHelper.replace(reportRangeNewInputs, reportRangeInput, true);
             HookHelper.doAction('form_generator_field_added_to_dom', reportRangeparent);
         }
+        const deliverInput = HTMLHelper.getElement('.delivery-time-date-picker[type="text"]');
+        if (HTMLHelper.isElement(deliverInput)) {
+            const value = HTMLHelper.getValue(deliverInput);
+            if (TypeHelper.isEmpty(value)) {
+                HTMLHelper.setValue(deliverInput, Date.now());
+            }
+            HTMLHelper.addClass(deliverInput, 'pr-datepicker');
+            const deliverInputParent = HTMLHelper.getParent(deliverInput);
+            HookHelper.doAction('form_generator_field_added_to_dom', deliverInputParent);
+        }
     });
 
     HookHelper.observe('#dokan-coupon-form input#date_expires', async (input) => {
@@ -199,8 +210,9 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
         }, input);
     });
 
-    convertDatatableDatesToPersian('#dokan-coupon-dashboard', 6, 'DD MMMM YYYY')
-    convertDatatableDatesToPersian('#dokan-withdraw-request-data-view', 4, 'DD MMMM YYYY در HH:mm')
+    convertDatatableDatesToPersian('#dokan-coupon-dashboard', 6, 'DD MMMM YYYY');
+    convertDatatableDatesToPersian('#dokan-withdraw-request-data-view', 4, 'DD MMMM YYYY در HH:mm');
+    convertDatatableDatesToPersian('#dokan-vendor-reviews', 3, 'DD MMMM YYYY', 'small');
 
     HookHelper.observe('.components-datetime__date', (datepicker) => {
         const container = HTMLHelper.getParent(datepicker, '.components-popover__fallback-container');
@@ -304,7 +316,7 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
         }
     }
 
-    function convertDatatableDatesToPersian(selectorPrefix, tdIndex, format) {
+    function convertDatatableDatesToPersian(selectorPrefix, tdIndex, format, containerSelector = 'div') {
 
         HookHelper.observe(`${selectorPrefix} .dataviews-view-table td`, async (td) => {
             await ToolHelper.delay(50)
@@ -319,7 +331,7 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
                 if (!HTMLHelper.isElement(cell)) return;
                 const persianDiv = HTMLHelper.getElement('div.persian-date', cell);
                 if (HTMLHelper.isElement(persianDiv)) return;
-                const contentDiv = HTMLHelper.getElement('div', cell);
+                const contentDiv = HTMLHelper.getElement(containerSelector, cell);
                 if (!HTMLHelper.isElement(contentDiv)) return;
 
                 const original                         = contentDiv.textContent.trim(),
