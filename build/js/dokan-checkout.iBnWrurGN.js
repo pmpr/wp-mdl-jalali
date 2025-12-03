@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 959:
-/*!**********************************************!*\
-  !*** ./asset/scss/plugin/dokan/backend.scss ***!
-  \**********************************************/
+/***/ 34:
+/*!***********************************************!*\
+  !*** ./asset/scss/plugin/dokan/checkout.scss ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56,13 +56,28 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!******************************************!*\
-  !*** ./asset/js/plugin/dokan/backend.js ***!
-  \******************************************/
-__webpack_require__(/*! ../../../scss/plugin/dokan/backend.scss */ 959);
+/*!*******************************************!*\
+  !*** ./asset/js/plugin/dokan/checkout.js ***!
+  \*******************************************/
+__webpack_require__(/*! ../../../scss/plugin/dokan/checkout.scss */ 34);
 
 (function () {
 
+    const TypeHelper = PRHelper.getType(),
+          HookHelper = PRHelper.getHook(),
+          HTMLHelper = PRHelper.getHTML();
+
+    HookHelper.on('DOMContentLoaded', () => {
+        const datepickerInputs = HTMLHelper.getElements('.delivery-time-date-picker[type="text"]');
+        TypeHelper.each(datepickerInputs, (datepickerInput) => {
+            //HTMLHelper.setValue(datepickerInput, Date.now());
+            HTMLHelper.addClass(datepickerInput, 'pr-datepicker');
+            const parent = HTMLHelper.getParent(datepickerInput);
+            HookHelper.doAction('form_generator_field_added_to_dom', parent, {
+                minDate: Date.now(),
+            });
+        });
+    });
 })();
 
 })();

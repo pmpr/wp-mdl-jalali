@@ -153,6 +153,12 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
           SettingHelper = PRHelper.getSetting();
 
     HookHelper.on('DOMContentLoaded', () => {
+
+        const shippedDateInput = HTMLHelper.getElement('#shipped-date');
+        if (HTMLHelper.isElement(shippedDateInput)) {
+            HTMLHelper.attr(shippedDateInput, 'placeholder', '');
+        }
+
         const orderRangeInput = HTMLHelper.getElementByID('order_filter_date_range');
         if (HTMLHelper.isElement(orderRangeInput)) {
 
@@ -181,14 +187,28 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
         }
         const deliverInput = HTMLHelper.getElement('.delivery-time-date-picker[type="text"]');
         if (HTMLHelper.isElement(deliverInput)) {
-            const value = HTMLHelper.getValue(deliverInput);
-            if (TypeHelper.isEmpty(value)) {
-                HTMLHelper.setValue(deliverInput, Date.now());
-            }
+            // const value = HTMLHelper.getValue(deliverInput);
+            // if (TypeHelper.isEmpty(value)) {
+            //     HTMLHelper.setValue(deliverInput, Date.now());
+            // }
             HTMLHelper.addClass(deliverInput, 'pr-datepicker');
             const deliverInputParent = HTMLHelper.getParent(deliverInput);
-            HookHelper.doAction('form_generator_field_added_to_dom', deliverInputParent);
+            HookHelper.doAction('form_generator_field_added_to_dom', deliverInputParent, {
+                minDate: Date.now(),
+            });
         }
+    });
+
+    HookHelper.addFilter('jalali_datepicker_changed_original_input_value', (value, element) => {
+        if (HTMLHelper.is(element, '#shipped-date')) {
+            const datepicker = element.jDatepicker;
+            if (!TypeHelper.isEmpty(datepicker) && datepicker.options
+                && datepicker.options.calendarType === 'persian') {
+
+                value = new window.persianDate((new Date(value)).getTime()).format('YYYY/MM/DD');
+            }
+        }
+        return value;
     });
 
     HookHelper.observe('#dokan-coupon-form input#date_expires', async (input) => {

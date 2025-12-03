@@ -6531,7 +6531,7 @@ const Config = {
                  * @type object
                  * @default today
                  */
-                en: 'today'
+                en: 'Today'
             },
 
             /**
@@ -7919,7 +7919,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                               unix  = new Date(value).valueOf();
                         datepicker.setDate(unix);
                     }, element);
-
+                    element.jDatepicker = datepicker;
                     initializedDatepickers[element.id] = datepicker;
 
                     HookHelper.on('keyup', (event) => {
@@ -7942,6 +7942,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
         if (!TypeHelper.isEmpty(value)) {
             value = getDate(value);
         }
+        value = HookHelper.applyFilters('jalali_datepicker_changed_original_input_value', value, element);
         PRHelper.getHTML().setValue(element, value, true);
     }
 
