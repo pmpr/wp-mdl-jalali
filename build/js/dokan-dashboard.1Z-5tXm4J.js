@@ -233,6 +233,7 @@ __webpack_require__(/*! ../../../scss/plugin/dokan/dashboard.scss */ 167);
     convertDatatableDatesToPersian('#dokan-coupon-dashboard', 6, 'DD MMMM YYYY');
     convertDatatableDatesToPersian('#dokan-withdraw-request-data-view', 4, 'DD MMMM YYYY در HH:mm');
     convertDatatableDatesToPersian('#dokan-vendor-reviews', 3, 'DD MMMM YYYY', 'small');
+    convertDatatableDatesToPersian('#dokan-rma-requests-data-view', 5, 'DD MMMM YYYY',);
 
     HookHelper.observe('.components-datetime__date', (datepicker) => {
         const container = HTMLHelper.getParent(datepicker, '.components-popover__fallback-container');

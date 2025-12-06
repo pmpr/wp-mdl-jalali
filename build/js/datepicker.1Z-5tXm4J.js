@@ -7848,9 +7848,10 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                 let hasValue = !TypeHelper.isEmpty(value),
                     attrs    = {
                         id: `jalali_${id}`,
-                        dir: 'ltr',
+                        // dir: 'ltr',
                         type: 'text',
-                        class: `direction-ltr pr-jalali ${HTMLHelper.getAttribute(element, 'class')}`,
+                        // class: `direction-ltr pr-jalali ${HTMLHelper.getAttribute(element, 'class')}`,
+                        class: `pr-jalali ${HTMLHelper.getAttribute(element, 'class')}`,
                         readonly: 'true',
                         autocomplete: 'off'
                     };
