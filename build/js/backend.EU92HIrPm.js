@@ -150,6 +150,32 @@ const Converter = {
 
 
 
+(function () {
+
+    const I18NHelper = PRHelper.getI18n(),
+          TypeHelper = PRHelper.getType(),
+          HookHelper = PRHelper.getHook(),
+          HTMLHelper = PRHelper.getHTML();
+
+    HookHelper.on('DOMContentLoaded', () => {
+        const wrongNumberFileds = [
+            HTMLHelper.getElement('[name="order_date_hour"]'),
+            HTMLHelper.getElement('[name="order_date_minute"]'),
+            HTMLHelper.getElement('[name="order_date_second"]')
+        ];
+
+        TypeHelper.each(wrongNumberFileds, (field) => {
+            if (HTMLHelper.isElement(field)) {
+                const value = HTMLHelper.getValue(field);
+                if (!TypeHelper.isEmpty(value) && isNaN(value)) {
+                    HTMLHelper.setValue(field, I18NHelper.number(value, 'english'));
+                }
+            }
+        });
+
+    });
+})();
+
 external_jQuery_default()(document).ready(function () {
 
     function getMonthName(month = 0) {
@@ -166,7 +192,7 @@ external_jQuery_default()(document).ready(function () {
     function timestampDivModifier(year, month, day, hour, min) {
 
         let content = '<div class="timestamp-wrap jalaliDivBox">',
-            sel = '';
+            sel     = '';
 
         content += '<select id="Jmm" name="Jmm">';
         for (let i = 1; i <= 12; i++) {
@@ -190,13 +216,13 @@ external_jQuery_default()(document).ready(function () {
 
     function changeTimestampViewer() {
 
-        let y = external_jQuery_default()('input[name=aa]').val(),
-            m = external_jQuery_default()('select[name=mm]').val(),
-            d = external_jQuery_default()('input[name=jj]').val(),
-            h = external_jQuery_default()('input[name=hh]').val(),
-            i = external_jQuery_default()('input[name=mn]').val(),
-            jd = converter.toJalali(y, m, d),
-            ret = '',
+        let y     = external_jQuery_default()('input[name=aa]').val(),
+            m     = external_jQuery_default()('select[name=mm]').val(),
+            d     = external_jQuery_default()('input[name=jj]').val(),
+            h     = external_jQuery_default()('input[name=hh]').val(),
+            i     = external_jQuery_default()('input[name=mn]').val(),
+            jd    = converter.toJalali(y, m, d),
+            ret   = '',
             $text = getMonthName(jd[1]) + ' ' + jd[2] + ', ' + jd[0] + ' @' + h + ':' + i;
 
         for (let index = 0; index < $text.length; index++) {
@@ -215,16 +241,16 @@ external_jQuery_default()(document).ready(function () {
 
     external_jQuery_default()('#the-list').on('click', '.editinline', function () {
 
-        let tr = external_jQuery_default()(this).closest('td'),
+        let tr   = external_jQuery_default()(this).closest('td'),
             year = tr.find('.aa').html();
 
         if (year > 1700) {
 
             let month = tr.find('.mm').html(),
-                day = tr.find('.jj').html(),
-                hour = tr.find('.hh').html(),
-                min = tr.find('.mn').html(),
-                date = converter.toJalali(year, month, day);
+                day   = tr.find('.jj').html(),
+                hour  = tr.find('.hh').html(),
+                min   = tr.find('.mn').html(),
+                date  = converter.toJalali(year, month, day);
 
             external_jQuery_default()('.inline-edit-date div').hide();
             external_jQuery_default()('.inline-edit-date').prepend(timestampDivModifier(date[0], date[1], date[2], hour, min));
@@ -244,10 +270,10 @@ external_jQuery_default()(document).ready(function () {
 
         $inlineEditDate.on('keyup', '#Jaa , #Jjj', function (e) {
 
-            let year = external_jQuery_default()('#Jaa').val(),
+            let year  = external_jQuery_default()('#Jaa').val(),
                 month = external_jQuery_default()('#Jmm').val(),
-                day = external_jQuery_default()('#Jjj').val(),
-                date = converter.toGregorian(year, month, day);
+                day   = external_jQuery_default()('#Jjj').val(),
+                date  = converter.toGregorian(year, month, day);
 
             external_jQuery_default()('input[name=aa]').val(date[0]);
             external_jQuery_default()('select[name=mm]').val(date[1]);
@@ -256,10 +282,10 @@ external_jQuery_default()(document).ready(function () {
 
         $inlineEditDate.on('change', '#Jmm', function () {
 
-            let year = external_jQuery_default()('#Jaa').val(),
+            let year  = external_jQuery_default()('#Jaa').val(),
                 month = external_jQuery_default()('#Jmm').val(),
-                day = external_jQuery_default()('#Jjj').val(),
-                date = converter.toGregorian(year, month, day);
+                day   = external_jQuery_default()('#Jjj').val(),
+                date  = converter.toGregorian(year, month, day);
 
             external_jQuery_default()('input[name=aa]').val(date[0]);
             if (date[1] < 10) date[1] = '0' + date[1];
@@ -274,7 +300,7 @@ external_jQuery_default()(document).ready(function () {
      */
 
     external_jQuery_default()('a.edit-timestamp').on('click', function () {
-        let date = converter.toJalali(external_jQuery_default()('#aa').val(), external_jQuery_default()('#mm').val(), external_jQuery_default()('#jj').val()),
+        let date   = converter.toJalali(external_jQuery_default()('#aa').val(), external_jQuery_default()('#mm').val(), external_jQuery_default()('#jj').val()),
             divCnt = timestampDivModifier(date[0], date[1], date[2], external_jQuery_default()('#hh').val(), external_jQuery_default()('#mn').val());
         external_jQuery_default()('#timestampdiv .timestamp-wrap').hide();
         external_jQuery_default()('#timestampdiv').prepend(divCnt);
@@ -292,11 +318,11 @@ external_jQuery_default()(document).ready(function () {
             external_jQuery_default()('input[name=hh]').val(external_jQuery_default()('#Jhh').val());
             external_jQuery_default()('input[name=mn]').val(external_jQuery_default()('#Jmn').val());
 
-            let year = external_jQuery_default()('#Jaa').val(),
+            let year  = external_jQuery_default()('#Jaa').val(),
                 month = external_jQuery_default()('#Jmm').val(),
-                day = external_jQuery_default()('#Jjj').val(),
+                day   = external_jQuery_default()('#Jjj').val(),
                 jDate = [year, month, day],
-                date = converter.toGregorian(year, month, day);
+                date  = converter.toGregorian(year, month, day);
 
             if (date[1] < 10) date[1] = '0' + date[1];
 

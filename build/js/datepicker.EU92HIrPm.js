@@ -7804,7 +7804,7 @@ window.persianDate = __webpack_require__(/*! persian-date */ 401);
                     if (!TypeHelper.isEmpty(value)
                         && !TypeHelper.isDate(value)) {
 
-                        const dateArray = I18NHelper.number(value, 'english').split('-'),
+                        const dateArray = I18NHelper.number(value, 'english').split('-').map(Number),
                               gDate = new window.persianDate(dateArray).toCalendar('gregorian').toLocale('en').format('YYYY-MM-DD');
 
                         HTMLHelper.setValue(element, gDate);
